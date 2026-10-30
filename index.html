@@ -286,6 +286,42 @@ footer{margin:64px 0 0;font-family:var(--mono);font-size:11px;letter-spacing:.06
 
         <article class="card dimi" data-rv>
           <div class="top">
+            <h3><a href="https://github.com/lokifergusion9/Travel-OS" target="_blank" rel="noopener noreferrer">TravelOS — AI Operating System for Travel Agencies &#8599;</a></h3>
+            <span class="tag">AI SaaS · Agents</span>
+          </div>
+          <p>A multi-tenant workspace where <b>LangGraph agents</b> draft itineraries, marketing creatives, vendor deals and lead follow-ups, and a human approves every step before anything goes out. Tenant isolation is enforced in the database with <b>PostgreSQL Row-Level Security</b>, per-tenant integration tokens are encrypted at rest, and nothing is sent or posted except from the approve path.</p>
+          <div class="kpis">
+            <span class="g">Human-in-the-loop approvals</span>
+            <span>Row-Level Security tenancy</span>
+            <span>24 backend + 5 frontend tests</span>
+            <span>CI on every push</span>
+          </div>
+          <div class="links">
+            <a href="https://github.com/lokifergusion9/Travel-OS" target="_blank" rel="noopener noreferrer">Code &#8599;</a>
+          </div>
+          <div class="chips"><span>LangGraph</span><span>FastAPI</span><span>React</span><span>TypeScript</span><span>PostgreSQL</span><span>pgvector</span><span>Docker</span><span>Terraform</span></div>
+        </article>
+
+        <article class="card dimi" data-rv>
+          <div class="top">
+            <h3><a href="https://github.com/lokifergusion9/Agentic-AI-Customer-Support-System" target="_blank" rel="noopener noreferrer">Customer Support Resolution Agent &#8599;</a></h3>
+            <span class="tag">Agents · Evals</span>
+          </div>
+          <p>A support agent where <b>the model proposes and ordinary code decides</b>: no refund is ever issued without a human approval tied to one exact, immutable proposal. Refunds are idempotent and reconcile with the payment provider after lost responses. A bundled evaluation platform runs <b>50 versioned tasks</b> against mock services with injected faults and scores business state, not wording.</p>
+          <div class="kpis">
+            <span class="g">No refund without approval</span>
+            <span>50 versioned eval tasks</span>
+            <span>4 deterministic evaluators</span>
+            <span>911 tests in CI</span>
+          </div>
+          <div class="links">
+            <a href="https://github.com/lokifergusion9/Agentic-AI-Customer-Support-System" target="_blank" rel="noopener noreferrer">Code &#8599;</a>
+          </div>
+          <div class="chips"><span>LangGraph</span><span>FastAPI</span><span>PostgreSQL</span><span>pgvector</span><span>RAG</span><span>Gemini</span><span>LLM Evals</span></div>
+        </article>
+
+        <article class="card dimi" data-rv>
+          <div class="top">
             <h3><a href="https://delivery-network-intelligence-bgrkkktakv7jqgvm7msawv.streamlit.app/" target="_blank" rel="noopener noreferrer">Graph-Based Delhivery ETA Optimization ↗</a></h3>
             <span class="tag">Supply-Chain · Graph ML</span>
           </div>
@@ -319,6 +355,41 @@ footer{margin:64px 0 0;font-family:var(--mono);font-size:11px;letter-spacing:.06
             <a class="sec" href="https://github.com/lokifergusion9/decoding-customer-value" target="_blank" rel="noopener noreferrer">Code ↗</a>
           </div>
           <div class="chips"><span>SQL</span><span>MySQL</span><span>pandas</span><span>Power BI</span><span>Segmentation</span></div>
+        </article>
+
+        <article class="card dimi" data-rv>
+          <div class="top">
+            <h3><a href="https://github.com/lokifergusion9/EV-dynamic-tariff-optimization" target="_blank" rel="noopener noreferrer">Agentic Dynamic Tariff Optimization for EV Charging &#8599;</a></h3>
+            <span class="tag">Optimization · Agents</span>
+          </div>
+          <p>Three cooperating agents <b>forecast demand, set a dynamic ₹/kWh tariff and learn from simulated outcomes</b>. Built on real Caltech ACN-Data charging sessions and cross-checked on Shenzhen UrbanEV. Against a flat ₹15/kWh rate the learned policy earns more while easing peak congestion and moving demand into idle off-peak hours (simulated results).</p>
+          <div class="kpis">
+            <span class="g">+8.2% revenue vs flat rate</span>
+            <span class="g">−22% peak wait</span>
+            <span>Load forecast R² 0.90</span>
+            <span>Congestion ROC-AUC 0.96</span>
+          </div>
+          <div class="links">
+            <a href="https://github.com/lokifergusion9/EV-dynamic-tariff-optimization" target="_blank" rel="noopener noreferrer">Code &#8599;</a>
+          </div>
+          <div class="chips"><span>scikit-learn</span><span>Gradient Boosting</span><span>Simulation</span><span>Python</span></div>
+        </article>
+
+        <article class="card dimi" data-rv>
+          <div class="top">
+            <h3><a href="https://github.com/lokifergusion9/rlhf" target="_blank" rel="noopener noreferrer">RLHF Post-Training of Qwen2.5-0.5B &#8599;</a></h3>
+            <span class="tag">LLM · Alignment</span>
+          </div>
+          <p>End-to-end <b>SFT, reward model and token-level PPO</b> on HelpSteer3 with Hugging Face TRL and LoRA, evaluated on 2,017 held-out prompts. PPO beats the base model in 50.9% and the SFT policy in 57.7% of pairwise comparisons under the learned reward model. The audit also shows its cost: longer outputs, more generation-cap hits and the highest repetition rate.</p>
+          <div class="kpis">
+            <span class="g">57.7% PPO win rate vs SFT</span>
+            <span>2,017-prompt evaluation</span>
+            <span class="r">Higher repetition (audited)</span>
+          </div>
+          <div class="links">
+            <a href="https://github.com/lokifergusion9/rlhf" target="_blank" rel="noopener noreferrer">Code &#8599;</a>
+          </div>
+          <div class="chips"><span>TRL</span><span>PPO</span><span>LoRA</span><span>Qwen2.5</span><span>PyTorch</span></div>
         </article>
       </div>
       <a class="more" data-rv href="https://github.com/lokifergusion9" target="_blank" rel="noopener noreferrer">View full archive on GitHub →</a>
