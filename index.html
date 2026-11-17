@@ -229,21 +229,33 @@ footer{margin:64px 0 0;font-family:var(--mono);font-size:11px;letter-spacing:.06
           <figcaption class="cap">Lokesh Kumar · IIT Roorkee</figcaption>
         </figure>
         <p data-rv>I approach problems as an <b>industrial engineer first and a builder second</b>. Before I write a model or an agent, I want to know which decision it is supposed to change — the vendor someone picks, the hub someone fixes, the discount someone stops giving.</p>
-        <p data-rv>That framing runs through everything I ship. At Mount Diggers I built <b>TravelOS</b>, a multi-tenant AI CRM with five LangGraph agents that keep a human in the loop. <b>KhataAI</b> turns WhatsApp payment messages into a clean ledger with <b>100% field accuracy</b> on a held-out set. A logistics graph cut ETA error <b>24%</b>, and a D2C brand's transactions showed that <b>43% of its revenue</b> leaned on discounts that drove zero extra spend.</p>
+        <p data-rv>That framing runs through everything I ship. At Mount Diggers I built <b>TravelOS</b>, a multi-tenant AI CRM with four LangGraph agents that keep a human in the loop. <b>KhataAI</b> turns WhatsApp payment messages into a clean ledger with <b>100% field accuracy</b> on a held-out set. A logistics graph cut ETA error <b>24%</b>, and a D2C brand's transactions showed that <b>43% of its revenue</b> leaned on discounts that drove zero extra spend.</p>
         <p data-rv>Outside the terminal I've led a <b>13-member expedition to Auden's Col (5,500m)</b>, founded the Rajasthan Cultural Association, and captained IIT Roorkee's volleyball team. They taught me what operations keeps teaching: plans meet messy reality, and the people who win measure, adapt and keep the system moving.</p>
       </div>
       <div class="stats" data-rv>
         <div class="stat"><div class="n"><span data-count="100" data-dec="0">100</span>%</div><div class="l">Held-out field accuracy — KhataAI LLM pipeline</div></div>
         <div class="stat"><div class="n">−<span data-count="24" data-dec="0">24</span>%</div><div class="l">ETA error cut with graph features</div></div>
         <div class="stat"><div class="n">$<span data-count="99" data-dec="0">99</span>K</div><div class="l">Promo-reliant revenue exposed (of $233K)</div></div>
-        <div class="stat"><div class="n"><span data-count="5" data-dec="0">5</span></div><div class="l">LangGraph agents shipped in TravelOS</div></div>
+        <div class="stat"><div class="n"><span data-count="4" data-dec="0">4</span></div><div class="l">LangGraph agents shipped in TravelOS</div></div>
       </div>
     </section>
 
     <section id="experience">
       <div class="sh" data-rv><span>02 — Experience</span></div>
       <div class="job" data-rv>
-        <span class="when">Sep 2025 — Mar 2026</span>
+        <span class="when">Aug 2026 — Oct 2026</span>
+        <div>
+          <h3>AI Product Intern · <em>Candex AI</em></h3>
+          <p class="sub">Omnichannel AI calling agent</p>
+          <ul class="ticks">
+            <li>Authored PRDs and user stories, raising <b>50+ Jira tickets</b> and running sprint grooming for an omnichannel AI calling agent.</li>
+            <li>Drove QA and UAT on voice/WhatsApp flows; designed LLM evals, cutting hallucinations <b>20%</b> across <b>50,000+ live chats</b>.</li>
+            <li>Led 14-day client pilots, mining transcripts for insights and tracking KPIs on dashboards; pilot-to-paid rate rose <b>15%</b>.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="job" data-rv>
+        <span class="when">Jan 2026 — Jun 2026</span>
         <div>
           <h3>Founder's Office · <em>Mount Diggers</em></h3>
           <p class="sub">Adventure travel &amp; hospitality</p>
@@ -255,9 +267,9 @@ footer{margin:64px 0 0;font-family:var(--mono);font-size:11px;letter-spacing:.06
           </ul>
           <p class="group">TravelOS — AI SaaS CRM</p>
           <ul class="ticks">
-            <li>Built <b>TravelOS</b>, a multi-tenant AI SaaS CRM with <b>6 modules</b> automating itinerary, creatives, sourcing, publishing and leads. <a href="https://github.com/lokifergusion9/Travel-OS" target="_blank" rel="noopener noreferrer">Code &#8599;</a></li>
-            <li>Engineered <b>5 LangGraph AI agents</b> with human-in-the-loop approval for itineraries, vendor outreach and lead classification.</li>
-            <li>Built a <b>FastAPI</b> backend with <b>PostgreSQL Row-Level Security</b> for tenant isolation; deployed on <b>AWS</b> via Docker and Terraform.</li>
+            <li>Built <b>TravelOS</b>, a multi-tenant AI SaaS CRM (FastAPI, React) with <b>8 modules</b> automating itineraries, creatives and leads. <a href="https://github.com/lokifergusion9/Travel-OS" target="_blank" rel="noopener noreferrer">Code &#8599;</a></li>
+            <li>Developed <b>4 AI agents (LangGraph)</b> for itineraries, creatives, outreach and follow-ups with human-in-the-loop approval.</li>
+            <li>Secured data with <b>PostgreSQL Row-Level Security</b>, JWT and HMAC-verified webhooks; deployed on <b>AWS EC2</b> via Docker.</li>
           </ul>
         </div>
       </div>
@@ -300,24 +312,6 @@ footer{margin:64px 0 0;font-family:var(--mono);font-size:11px;letter-spacing:.06
             <a href="https://github.com/lokifergusion9/Travel-OS" target="_blank" rel="noopener noreferrer">Code &#8599;</a>
           </div>
           <div class="chips"><span>LangGraph</span><span>FastAPI</span><span>React</span><span>TypeScript</span><span>PostgreSQL</span><span>pgvector</span><span>Docker</span><span>Terraform</span></div>
-        </article>
-
-        <article class="card dimi" data-rv>
-          <div class="top">
-            <h3><a href="https://github.com/lokifergusion9/Agentic-AI-Customer-Support-System" target="_blank" rel="noopener noreferrer">Customer Support Resolution Agent &#8599;</a></h3>
-            <span class="tag">Agents · Evals</span>
-          </div>
-          <p>A support agent where <b>the model proposes and ordinary code decides</b>: no refund is ever issued without a human approval tied to one exact, immutable proposal. Refunds are idempotent and reconcile with the payment provider after lost responses. A bundled evaluation platform runs <b>50 versioned tasks</b> against mock services with injected faults and scores business state, not wording.</p>
-          <div class="kpis">
-            <span class="g">No refund without approval</span>
-            <span>50 versioned eval tasks</span>
-            <span>4 deterministic evaluators</span>
-            <span>911 tests in CI</span>
-          </div>
-          <div class="links">
-            <a href="https://github.com/lokifergusion9/Agentic-AI-Customer-Support-System" target="_blank" rel="noopener noreferrer">Code &#8599;</a>
-          </div>
-          <div class="chips"><span>LangGraph</span><span>FastAPI</span><span>PostgreSQL</span><span>pgvector</span><span>RAG</span><span>Gemini</span><span>LLM Evals</span></div>
         </article>
 
         <article class="card dimi" data-rv>
