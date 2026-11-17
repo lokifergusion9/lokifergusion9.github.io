@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="obsidian">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Travelos — Case file · Lokesh Kumar</title>
+<meta name="description" content="Multi-tenant workspace where LangGraph agents draft itineraries, creatives, vendor deals and follow-ups, and a human approves every step.">
+<meta name="theme-color" content="#0C100E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230E9F55'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='700' fill='%23ffffff' text-anchor='middle'%3ELK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/case.css">
+<link rel="stylesheet" href="assets/theme.css">
+</head>
+<body>
+<div class="nav">
+  <div class="l">
+    <a class="pill" href="index.html">LOKESH KUMAR</a>
+    <span style="color:var(--dim)">│</span>
+    <span>AI AGENTS · DATA · OPS</span>
+  </div>
+  <div class="links">
+    <a href="index.html">HOME</a>
+    <a href="index.html#about">ABOUT</a>
+    <a href="index.html#work">WORK</a>
+    <span class="on">PROJECTS</span>
+    <a href="index.html#skills">SKILLS</a>
+    <a href="index.html#photos">PHOTOS</a>
+    <a href="index.html#contact">CONTACT</a>
+    <a href="assets/Lokesh-Kumar-Resume.pdf" target="_blank" rel="noopener">RÉSUMÉ ↗</a>
+  </div>
+</div>
+
+<div class="hud">
+  <div class="hl"><span><span class="am">STACK</span>&nbsp; FASTAPI · REACT · LANGGRAPH</span><span><span class="am">DATA</span>&nbsp; POSTGRES + RLS</span><span><span class="am">TESTS</span>&nbsp; 24 + 5</span><span><span class="am">CI</span>&nbsp; EVERY PUSH</span></div>
+  <div class="hr"><span>LEVEL <span class="am">P-01</span></span><span class="badge">HUMAN APPROVES</span></div>
+</div>
+
+<section class="sec cs title">
+  <a class="back" href="projects.html">◂ ALL PROJECTS</a>
+  <div class="tgrid">
+    <div class="tcol">
+      <div class="kick">CASE FILE P-01 ── AI SAAS · AGENTS</div>
+      <h1>TRAVEL<br>OS</h1>
+      <div class="sub1">THE AI OPERATING SYSTEM FOR TRAVEL AGENCIES</div>
+      <p class="lead">One multi-tenant workspace where AI agents draft itineraries, marketing creatives, vendor deals and lead follow-ups, and a human approves every step before anything goes out.</p><p class="">Built at Mount Diggers for small agencies where one or two people do everything by hand: itineraries, posters, chasing hotels, posting, and then the flood of leads.</p>
+      <div class="rule"><div class="rk">DESIGN RULE</div><div>Every agent only drafts. No message is sent, no post is published and no vendor is emailed until a human clicks approve.</div></div>
+    </div>
+    <div class="scol">
+      <div class="screen">
+          <div class="sbar"><span>SCREEN ── DASHBOARD</span><span class="am">DEMO DATA</span></div>
+          <img src="assets/projects/travelos.png" alt="TRAVELOS — AI OPERATING SYSTEM FOR TRAVEL AGENCIES screenshot" loading="eager">
+          <div class="sfoot"><span class="blinkx">▸ PRESS START</span></div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec cs">
+  <div class="csh"><span class="tag">SCORE</span><span class="t">SCOREBOARD</span><span class="dash"></span></div>
+  <div class="tiles"><div class="tile"><div class="tl">MODULES</div><div class="tv">8</div><div class="td">Trip Builder, Creative Studio, Sourcing, Publishing, CRM, WhatsApp inbox, Approval Center, Analytics.</div></div><div class="tile"><div class="tl">AGENTS</div><div class="tv">4</div><div class="td">Itinerary, creative, sourcing and follow-up, all built on LangGraph.</div></div><div class="tile"><div class="tl">TESTS</div><div class="tv">24+5</div><div class="td">Backend tests against real Postgres plus frontend tests; CI on every push.</div></div><div class="tile"><div class="tl">API KEYS NEEDED</div><div class="tv">0</div><div class="td">Mock providers run the whole product and test suite offline.</div></div></div>
+</section>
+
+<section class="sec cs">
+  <div class="csh"><span class="tag">PATH</span><span class="t">REQUEST LIFECYCLE</span><span class="dash"></span></div>
+  <div class="prow other"><span class="pl">BY HAND</span><span class="blk dash">WRITE ITINERARY</span><span class="arr">▸</span><span class="blk dash">DESIGN POSTER</span><span class="arr">▸</span><span class="blk dash">CHASE HOTELS</span><span class="arr">▸</span><span class="blk dash">POST</span><span class="arr">▸</span><span class="blk dash hot">DROWN IN LEADS</span></div>
+  <div class="prow"><span class="pl am">TRAVELOS</span><span class="blk">BRIEF</span><span class="arr">▶</span><span class="blk">RESEARCH</span><span class="arr">▶</span><span class="blk">PLAN DAYS</span><span class="arr">▶</span><span class="blk">PRICE</span><span class="arr">▶</span><span class="blk">DRAFT</span><span class="arr">▶</span><span class="blk hot">APPROVE</span><span class="arr">▶</span><span class="blk">SEND</span></div>
+  <p class="pp">Agents stream progress over Server-Sent Events, save a draft plus an Approval row, and outbound side effects fire only from the approve path.</p>
+</section>
+
+<section class="sec cs">
+  <div class="csh"><span class="tag">BOSS</span><span class="t">HOW IT HOLDS UP</span><span class="dash"></span></div>
+  <div class="two"><div class="panel">
+        <div class="ck"><span class="am">CORE A</span><span>TENANT ISOLATION</span></div>
+        <p>Every business table carries a tenant_id, and Postgres Row-Level Security filters rows by the tenant bound to the request. The API connects as a non-superuser role with FORCE ROW LEVEL SECURITY, so even a buggy query can&#x27;t cross tenants.</p>
+        <div class="grid2"><div><span>ENFORCED IN</span><b>DATABASE</b></div><div><span>APP ROLE</span><b>NON-SUPERUSER</b></div><div><span>POLICY</span><b>FORCE RLS</b></div><div><span>PROVEN BY</span><b>A ↛ B TEST</b></div></div>
+        <div class="cn">A test proves Agency A cannot read Agency B&#x27;s data.</div>
+      </div><div class="panel">
+        <div class="ck"><span class="am">CORE B</span><span>SECURITY HARDENING</span></div>
+        <p>Signed Meta and WhatsApp webhooks, Redis-backed rate limits, revocable JWTs, an httpOnly refresh cookie and encrypted per-tenant credentials.</p>
+        <div class="grid2"><div><span>WEBHOOKS</span><b>HMAC-SHA256</b></div><div><span>SESSIONS</span><b>REVOCABLE JWT</b></div><div><span>REFRESH</span><b>HTTPONLY COOKIE</b></div><div><span>SECRETS</span><b>FERNET AT REST</b></div></div>
+        <div class="cn">Production refuses to boot without real secrets.</div>
+      </div></div>
+  
+  <div class="verdict"><div class="vcol"><div class="vk red">VERDICT</div><div class="vh">Agents do the grunt work. The agency owner reviews and approves.</div><div class="vp">Production-shaped: Gunicorn + Uvicorn workers, a separate scheduler, S3 storage, Alembic migrations, non-root Docker images, Terraform for AWS and GitHub Actions CI.</div></div></div>
+</section>
+
+<section class="sec cs">
+  <div class="csh"><span class="tag">SELECT</span><span class="t">MODULES</span><span class="dash"></span></div>
+  <div class="subs"><div class="sub"><div class="sart">TRIP</div><div class="sbd"><div class="sk">P-01 · 01</div><div class="sh2">TRIP BUILDER</div><p>Streams a day-by-day itinerary with stays, transport and a cost breakdown.</p></div></div><div class="sub"><div class="sart">ART</div><div class="sbd"><div class="sk">P-01 · 02</div><div class="sh2">CREATIVE STUDIO</div><p>Poster, Instagram and WhatsApp captions, a PDF brochure and a short reel.</p></div></div><div class="sub"><div class="sart">DEAL</div><div class="sbd"><div class="sk">P-01 · 03</div><div class="sh2">SOURCING</div><p>Drafts outreach to matching hotel and transport vendors and tracks each deal.</p></div></div><div class="sub"><div class="sart">POST</div><div class="sbd"><div class="sk">P-01 · 04</div><div class="sh2">PUBLISHING</div><p>Schedules and publishes posts to Instagram via the Graph API.</p></div></div><div class="sub"><div class="sart">CRM</div><div class="sbd"><div class="sk">P-01 · 05</div><div class="sh2">CRM + LEADS</div><p>Captures leads from Meta, web forms and WhatsApp; classifies intent; drafts follow-ups.</p></div></div><div class="sub"><div class="sart">CHAT</div><div class="sbd"><div class="sk">P-01 · 06</div><div class="sh2">WHATSAPP INBOX</div><p>Two-way conversations via the WhatsApp Cloud API, threaded per lead.</p></div></div><div class="sub"><div class="sart">OK</div><div class="sbd"><div class="sk">P-01 · 07</div><div class="sh2">APPROVAL CENTER</div><p>Every draft from every agent lands in one queue to approve or reject.</p></div></div><div class="sub"><div class="sart">KPI</div><div class="sbd"><div class="sk">P-01 · 08</div><div class="sh2">ANALYTICS</div><p>Live lead funnel, conversion rate and source mix.</p></div></div></div>
+</section>
+<section class="sec cs">
+  <div class="csh"><span class="tag">LEVEL MAP</span><span class="t">ROADMAP</span><span class="dash"></span></div>
+  <div class="miles"><div class="mile clear"><div class="mh"><span>M1</span><span>CLEAR</span></div><div class="mn">AUTH + ONBOARDING</div><div class="md">Multi-tenant auth and dashboard shell</div></div><div class="mile clear"><div class="mh"><span>M2</span><span>CLEAR</span></div><div class="mn">TRIP + CREATIVE</div><div class="md">Itinerary, posters, captions, brochure, reel</div></div><div class="mile clear"><div class="mh"><span>M3</span><span>CLEAR</span></div><div class="mn">CRM + LEADS</div><div class="md">Meta webhook, web capture, follow-ups</div></div><div class="mile clear"><div class="mh"><span>M4</span><span>CLEAR</span></div><div class="mn">SOURCING + PUBLISH</div><div class="md">Vendor outreach and Instagram</div></div><div class="mile clear"><div class="mh"><span>M5</span><span>CLEAR</span></div><div class="mn">INBOX + ANALYTICS</div><div class="md">WhatsApp two-way inbox</div></div><div class="mile clear"><div class="mh"><span>M6</span><span>CLEAR</span></div><div class="mn">PRODUCTION SETUP</div><div class="md">Workers, S3, Docker, Terraform, CI</div></div><div class="mile clear"><div class="mh"><span>M7</span><span>CLEAR</span></div><div class="mn">SECURITY</div><div class="md">Signed webhooks, rate limits, revocable JWT</div></div><div class="mile locked"><div class="mh"><span>M8</span><span>LOCKED</span></div><div class="mn">SETTINGS PAGE</div><div class="md">Integrations, team, auto-follow-up</div></div><div class="mile locked"><div class="mh"><span>M9</span><span>LOCKED</span></div><div class="mn">RAG MEMORY</div><div class="md">pgvector over past itineraries</div></div></div>
+</section>
+<section class="sec cs">
+  <div class="rules">
+    <div class="rcol"><div class="vk am">RULES OF PLAY</div><div class="rl"><div><span class="am">▸ </span>Agents draft, humans approve.</div><div><span class="am">▸ </span>The database enforces tenancy, not just app code.</div><div><span class="am">▸ </span>Runs with zero API keys: mocks keep dev and tests offline.</div><div><span class="am">▸ </span>Fail fast: production refuses to boot without real secrets.</div></div></div>
+    <div class="rcol"><div class="vk am">ARTEFACTS</div><div class="rl"><div><span class="mu">FRONTEND ▸ </span>React 19 · TypeScript · Vite · Tailwind</div><div><span class="mu">BACKEND ▸ </span>FastAPI · SQLAlchemy 2 · LangGraph</div><div><span class="mu">DATA ▸ </span>PostgreSQL 16 + pgvector · Redis 7</div><div><span class="mu">INFRA ▸ </span>Docker · nginx · Terraform (AWS) · GitHub Actions</div><div><a href="https://github.com/lokifergusion9/Travel-OS" target="_blank" rel="noopener noreferrer">[ ▸ SOURCE CODE ]</a></div></div></div>
+  </div>
+</section>
+
+<div class="foot cfoot">
+  <div class="cnav">
+    <a href="project-ev-tariff.html">◂ P-07 EVTARIFF</a>
+    <a class="am" href="projects.html">CONTINUE? ▸ ALL PROJECTS</a>
+    <a href="project-khataai.html">P-02 KHATAAI ▸</a>
+  </div>
+</div>
+<div class="foot">
+  <div class="g">
+    <div><div class="h">LOKESH KUMAR</div><div class="bl">IIT Roorkee engineer building AI agents, LLM evals and data systems that change real decisions.</div></div>
+    <div>
+      <div class="h">CONTACT</div>
+      <div><span class="pre">MAIL ▸ </span><a href="mailto:lokeshkumar22119032@gmail.com">lokeshkumar22119032@gmail.com</a></div>
+      <div><span class="pre">GHUB ▸ </span><a href="https://github.com/lokifergusion9" target="_blank" rel="noopener noreferrer">github.com/lokifergusion9</a></div>
+      <div><span class="pre">LNKD ▸ </span><a href="https://www.linkedin.com/in/lokesh-kumar-1768262b9/" target="_blank" rel="noopener noreferrer">in/lokesh-kumar-1768262b9</a></div>
+    </div>
+    <div>
+      <div class="h">INDEX</div>
+      <div class="foot-links"><a href="index.html">HOME</a><a href="projects.html">PROJECTS</a><a href="index.html#skills">SKILLS</a><a href="index.html#photos">PHOTOS</a><a href="index.html#contact">CONTACT</a></div>
+    </div>
+  </div>
+  <div class="eof"><span>░▒▓ END OF FILE ▓▒░</span><span>LOKESH KUMAR · MMXXVI</span></div>
+</div>
+
+</body>
+</html>

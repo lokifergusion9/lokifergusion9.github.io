@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="obsidian">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Refundguard — Case file · Lokesh Kumar</title>
+<meta name="description" content="The model proposes and ordinary code decides: no refund is issued without a human approval tied to one exact proposal. An eval platform runs 50 versioned tasks with injected faults.">
+<meta name="theme-color" content="#0C100E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230E9F55'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='700' fill='%23ffffff' text-anchor='middle'%3ELK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/case.css">
+<link rel="stylesheet" href="assets/theme.css">
+</head>
+<body>
+<div class="nav">
+  <div class="l">
+    <a class="pill" href="index.html">LOKESH KUMAR</a>
+    <span style="color:var(--dim)">│</span>
+    <span>AI AGENTS · DATA · OPS</span>
+  </div>
+  <div class="links">
+    <a href="index.html">HOME</a>
+    <a href="index.html#about">ABOUT</a>
+    <a href="index.html#work">WORK</a>
+    <span class="on">PROJECTS</span>
+    <a href="index.html#skills">SKILLS</a>
+    <a href="index.html#photos">PHOTOS</a>
+    <a href="index.html#contact">CONTACT</a>
+    <a href="assets/Lokesh-Kumar-Resume.pdf" target="_blank" rel="noopener">RÉSUMÉ ↗</a>
+  </div>
+</div>
+
+<div class="hud">
+  <div class="hl"><span><span class="am">TOOLS</span>&nbsp; 11 TYPED</span><span><span class="am">EVAL TASKS</span>&nbsp; 50</span><span><span class="am">RUNS</span>&nbsp; 248 REAL-MODEL</span><span><span class="am">TESTS</span>&nbsp; 911</span></div>
+  <div class="hr"><span>LEVEL <span class="am">P-06</span></span><span class="badge">0 DUPLICATE REFUNDS</span></div>
+</div>
+
+<section class="sec cs title">
+  <a class="back" href="projects.html">◂ ALL PROJECTS</a>
+  <div class="tgrid">
+    <div class="tcol">
+      <div class="kick">CASE FILE P-06 ── AGENTS · EVALS</div>
+      <h1>REFUND<br>GUARD</h1>
+      <div class="sub1">CUSTOMER SUPPORT RESOLUTION AGENT + LLM EVALUATION PLATFORM</div>
+      <p class="lead">An AI agent that takes a complaint from “where is my refund?” to a verified outcome, plus an evaluation platform that measures whether it can be trusted with money.</p><p class="">Built for a fictional electronics store: order status, refund request and damaged item.</p>
+      <div class="rule"><div class="rk">THE ONE RULE</div><div>The model proposes; the application decides and executes through typed tools. No refund is ever issued without a human approval bound to one exact, immutable proposal.</div></div>
+    </div>
+    <div class="scol">
+      <div class="screen">
+          <div class="sbar"><span>SCREEN ── EVAL SCORECARD</span><span class="am">MAIN EXPERIMENT</span></div>
+          <img src="assets/projects/refundguard.png" alt="REFUNDGUARD — AGENTIC SUPPORT WITH LLM EVALUATION screenshot" loading="eager">
+          <div class="sfoot"><span class="blinkx">▸ RUN EXPERIMENT</span></div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec cs">
+  <div class="csh"><span class="tag">SCORE</span><span class="t">SCOREBOARD</span><span class="dash"></span></div>
+  <div class="tiles"><div class="tile"><div class="tl">VERIFIED SUCCESS</div><div class="tv">84%</div><div class="td">Specialist agents (v1) on all 50 tasks; single agent 76%.</div></div><div class="tile"><div class="tl">DUPLICATE REFUNDS</div><div class="tv">0</div><div class="td">Across all 248 real-model eval runs.</div></div><div class="tile"><div class="tl">EVAL TASKS</div><div class="tv">50</div><div class="td">Versioned, 9 categories, split dev 30 · validation 10 · test 10.</div></div><div class="tile"><div class="tl">TESTS</div><div class="tv">911</div><div class="td">Deterministic tests, no model calls.</div></div></div>
+</section>
+
+<section class="sec cs">
+  <div class="csh"><span class="tag">PATH</span><span class="t">RESOLUTION FLOW</span><span class="dash"></span></div>
+  <div class="prow other"><span class="pl">NEVER</span><span class="blk dash">CHAT MESSAGE</span><span class="arr">▸</span><span class="blk dash hot">TREATED AS APPROVAL</span></div>
+  <div class="prow"><span class="pl am">EVERY RUN</span><span class="blk">CLASSIFY</span><span class="arr">▶</span><span class="blk">INVESTIGATE + POLICY</span><span class="arr">▶</span><span class="blk">PROPOSE</span><span class="arr">▶</span><span class="blk">RULES IN CODE</span><span class="arr">▶</span><span class="blk hot">HUMAN APPROVAL</span><span class="arr">▶</span><span class="blk">EXECUTE + VERIFY</span><span class="arr">▶</span><span class="blk">TICKET</span></div>
+  <p class="pp">The run pauses with LangGraph interrupt() and a PostgreSQL checkpointer, survives restarts, and only updates the ticket with the status the payment provider confirmed.</p>
+</section>
+
+<section class="sec cs">
+  <div class="csh"><span class="tag">BOSS</span><span class="t">HOW IT HOLDS UP</span><span class="dash"></span></div>
+  <div class="two"><div class="panel">
+        <div class="ck"><span class="am">CORE A</span><span>SAFETY BY DESIGN</span></div>
+        <p>Identity comes from auth, never the model. Proposals are immutable and hashed, and the reviewer&#x27;s decision is re-checked against the hash before execution.</p>
+        <div class="grid2"><div><span>IDENTITY</span><b>FROM JWT</b></div><div><span>PROPOSALS</span><b>IMMUTABLE + HASHED</b></div><div><span>MONEY TOOL</span><b>NEVER GIVEN TO LLM</b></div><div><span>REFUNDS</span><b>IDEMPOTENT KEY</b></div></div>
+        <div class="cn">Lost provider responses are reconciled by key before any retry.</div>
+      </div><div class="panel">
+        <div class="ck"><span class="am">CORE B</span><span>EVALUATION PLATFORM</span></div>
+        <p>Each attempt gets a clean world with injected faults, and four deterministic evaluators score the business state: outcome, policy, trajectory and response. No LLM judge decides whether money moved correctly.</p>
+        <div class="grid2"><div><span>EVALUATORS</span><b>4 DETERMINISTIC</b></div><div><span>FAULTS</span><b>5XX · DELAY · TIMEOUT</b></div><div><span>MANIFEST</span><b>HASHED, RERUNNABLE</b></div><div><span>RATES</span><b>WITH DENOMINATORS</b></div></div>
+        <div class="cn">Synthetic tasks against mock services: not production numbers.</div>
+      </div></div>
+  <div class="two figs"><div class="panel dark">
+        <div class="phd"><span>FIG 1 ── VERIFIED SUCCESS, MAIN RUN</span><span class="m">ALL 50 TASKS</span></div>
+        <div class="fbody"><div class="frow"><span class="fl">SINGLE V1</span><div class="fb"><div class="bar b" style="width:76.0%"></div><span>76%</span></div></div><div class="frow"><span class="fl">SPECIALIST V1</span><div class="fb"><div class="bar r" style="width:84.0%"></div><span>84%</span></div></div><div class="frow"><span class="fl">SPECIALIST V2</span><div class="fb"><div class="bar b" style="width:70.0%"></div><span>70%</span></div></div></div>
+        <div class="pft">Specialist v2 had 1 executed policy violation, caught by the evaluator</div>
+      </div></div>
+  <div class="verdict"><div class="vcol"><div class="vk red">VERDICT</div><div class="vh">Safety held: no duplicate refund in 248 runs, and the one forbidden action was caught by the policy evaluator.</div><div class="vp">No claim that specialists beat the single agent: they led on the main run (84% vs 76%) but trailed on repeated validation (57% vs 63%).</div></div><div class="vcol"><div class="vk am">NEXT LEVEL</div><div class="vp"><span class="am">▸ </span>Public agent benchmarks (BFCL, τ²-bench).</div><div class="vp"><span class="am">▸ </span>An LLM judge for response quality only.</div><div class="vp"><span class="am">▸ </span>Concurrent attempts per environment.</div><div class="vp"><span class="am">▸ </span>A recorded walkthrough of demos A to E.</div></div></div>
+</section>
+
+<section class="sec cs">
+  <div class="csh"><span class="tag">SELECT</span><span class="t">DEMOS</span><span class="dash"></span></div>
+  <div class="subs"><div class="sub"><div class="sart">A</div><div class="sbd"><div class="sk">P-06 · 01</div><div class="sh2">APPROVED REFUND</div><p>Complaint → evidence → reviewer approves → exactly one provider refund.</p></div></div><div class="sub"><div class="sart">B</div><div class="sbd"><div class="sk">P-06 · 02</div><div class="sh2">BLOCKED REQUEST</div><p>An ineligible refund is explained with policy, and no money moves.</p></div></div><div class="sub"><div class="sart">C</div><div class="sbd"><div class="sk">P-06 · 03</div><div class="sh2">FAILURE RECOVERY</div><p>The provider accepts but the reply is lost; reconciled by key, still one refund.</p></div></div><div class="sub"><div class="sart">D</div><div class="sbd"><div class="sk">P-06 · 04</div><div class="sh2">CONVINCING BUT WRONG</div><p>The reply says refund issued while the provider holds none; the evaluators catch it.</p></div></div><div class="sub"><div class="sart">E</div><div class="sbd"><div class="sk">P-06 · 05</div><div class="sh2">PROMPT TRADEOFF</div><p>Which tasks improved or regressed between prompt v1 and v2.</p></div></div></div>
+</section>
+<section class="sec cs">
+  <div class="rules">
+    <div class="rcol"><div class="vk am">RULES OF PLAY</div><div class="rl"><div><span class="am">▸ </span>Chat text authorizes nothing.</div><div><span class="am">▸ </span>Eligibility and amounts are computed in code, never by the model.</div><div><span class="am">▸ </span>Never claim a refund before the provider confirms it.</div><div><span class="am">▸ </span>Every step lands in a redacted, append-only audit trail.</div></div></div>
+    <div class="rcol"><div class="vk am">ARTEFACTS</div><div class="rl"><div><span class="mu">STACK ▸ </span>Python 3.13 · LangGraph · FastAPI · Pydantic v2</div><div><span class="mu">DATA ▸ </span>PostgreSQL 17 + pgvector · Alembic</div><div><span class="mu">MODELS ▸ </span>Gemini Flash-Lite / Flash (free tier)</div><div><span class="mu">CI ▸ </span>Docker Compose · GitHub Actions</div><div><a href="https://github.com/lokifergusion9/RefundGuard-Agentic-Customer-Support-with-LLM-Evaluation" target="_blank" rel="noopener noreferrer">[ ▸ SOURCE CODE ]</a></div></div></div>
+  </div>
+</section>
+
+<div class="foot cfoot">
+  <div class="cnav">
+    <a href="project-securebank.html">◂ P-05 SECUREBANK</a>
+    <a class="am" href="projects.html">CONTINUE? ▸ ALL PROJECTS</a>
+    <a href="project-ev-tariff.html">P-07 EVTARIFF ▸</a>
+  </div>
+</div>
+<div class="foot">
+  <div class="g">
+    <div><div class="h">LOKESH KUMAR</div><div class="bl">IIT Roorkee engineer building AI agents, LLM evals and data systems that change real decisions.</div></div>
+    <div>
+      <div class="h">CONTACT</div>
+      <div><span class="pre">MAIL ▸ </span><a href="mailto:lokeshkumar22119032@gmail.com">lokeshkumar22119032@gmail.com</a></div>
+      <div><span class="pre">GHUB ▸ </span><a href="https://github.com/lokifergusion9" target="_blank" rel="noopener noreferrer">github.com/lokifergusion9</a></div>
+      <div><span class="pre">LNKD ▸ </span><a href="https://www.linkedin.com/in/lokesh-kumar-1768262b9/" target="_blank" rel="noopener noreferrer">in/lokesh-kumar-1768262b9</a></div>
+    </div>
+    <div>
+      <div class="h">INDEX</div>
+      <div class="foot-links"><a href="index.html">HOME</a><a href="projects.html">PROJECTS</a><a href="index.html#skills">SKILLS</a><a href="index.html#photos">PHOTOS</a><a href="index.html#contact">CONTACT</a></div>
+    </div>
+  </div>
+  <div class="eof"><span>░▒▓ END OF FILE ▓▒░</span><span>LOKESH KUMAR · MMXXVI</span></div>
+</div>
+
+</body>
+</html>

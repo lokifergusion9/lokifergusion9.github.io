@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="obsidian">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agentic Dynamic Tariff For Ev Charging — Case file · Lokesh Kumar</title>
+<meta name="description" content="Three agents forecast demand, set a dynamic ₹/kWh tariff and learn from simulated outcomes on Caltech ACN-Data.">
+<meta name="theme-color" content="#0C100E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230E9F55'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='700' fill='%23ffffff' text-anchor='middle'%3ELK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/case.css">
+<link rel="stylesheet" href="assets/theme.css">
+</head>
+<body>
+<div class="nav">
+  <div class="l">
+    <a class="pill" href="index.html">LOKESH KUMAR</a>
+    <span style="color:var(--dim)">│</span>
+    <span>AI AGENTS · DATA · OPS</span>
+  </div>
+  <div class="links">
+    <a href="index.html">HOME</a>
+    <a href="index.html#about">ABOUT</a>
+    <a href="index.html#work">WORK</a>
+    <span class="on">PROJECTS</span>
+    <a href="index.html#skills">SKILLS</a>
+    <a href="index.html#photos">PHOTOS</a>
+    <a href="index.html#contact">CONTACT</a>
+    <a href="assets/Lokesh-Kumar-Resume.pdf" target="_blank" rel="noopener">RÉSUMÉ ↗</a>
+  </div>
+</div>
+
+<div class="hud">
+  <div class="hl"><span><span class="am">SESSIONS</span>&nbsp; 14,999 · ACN</span><span><span class="am">AGENTS</span>&nbsp; 3</span><span><span class="am">BASELINE</span>&nbsp; ₹15/kWh</span><span><span class="am">EPISODES</span>&nbsp; 30</span></div>
+  <div class="hr"><span>LEVEL <span class="am">P-07</span></span><span class="badge">SIMULATED</span></div>
+</div>
+
+<section class="sec cs title">
+  <a class="back" href="projects.html">◂ ALL PROJECTS</a>
+  <div class="tgrid">
+    <div class="tcol">
+      <div class="kick">CASE FILE P-07 ── OPTIMIZATION · AGENTS</div>
+      <h1>EV<br>TARIFF</h1>
+      <div class="sub1">AGENTIC DYNAMIC TARIFF OPTIMIZATION FOR EV CHARGING</div>
+      <p class="lead">A self-improving pricing engine for EV charging stations: three cooperating agents forecast demand, set a dynamic ₹/kWh tariff and learn from simulated outcomes.</p><p class="">Built on real Caltech ACN-Data sessions and cross-checked against the Shenzhen UrbanEV network.</p>
+      <div class="rule"><div class="rk">HONEST SCOPE</div><div>Demand response is assumed, not estimated: revenue, wait-time and uplift figures are simulation-based counterfactuals, not observed outcomes.</div></div>
+    </div>
+    <div class="scol">
+      <div class="screen">
+          <div class="sbar"><span>SCREEN ── TARIFF CURVE</span><span class="am">SIMULATED</span></div>
+          <img src="assets/projects/ev-tariff.png" alt="AGENTIC DYNAMIC TARIFF FOR EV CHARGING screenshot" loading="eager">
+          <div class="sfoot"><span class="blinkx">▸ CHARGE NOW</span></div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec cs">
+  <div class="csh"><span class="tag">SCORE</span><span class="t">SCOREBOARD</span><span class="dash"></span></div>
+  <div class="tiles"><div class="tile"><div class="tl">REVENUE</div><div class="tv">+8.2%</div><div class="td">Learned policy vs a flat ₹15/kWh tariff.</div></div><div class="tile"><div class="tl">PEAK WAIT</div><div class="tv">−22%</div><div class="td">Average peak wait-time reduction.</div></div><div class="tile"><div class="tl">OFF-PEAK</div><div class="tv">+1,700</div><div class="td">Extra sessions moved into idle hours.</div></div><div class="tile"><div class="tl">LOAD FORECAST</div><div class="tv">R² 0.90</div><div class="td">Gradient Boosting on charging load.</div></div></div>
+</section>
+
+<section class="sec cs">
+  <div class="csh"><span class="tag">PATH</span><span class="t">AGENT LOOP</span><span class="dash"></span></div>
+  <div class="prow other"><span class="pl">FLAT RATE</span><span class="blk dash">₹15/kWh ALL DAY</span><span class="arr">▸</span><span class="blk dash hot">PEAK QUEUES, IDLE NIGHTS</span></div>
+  <div class="prow"><span class="pl am">DYNAMIC</span><span class="blk">DEMAND AGENT</span><span class="arr">▶</span><span class="blk">FORECAST</span><span class="arr">▶</span><span class="blk">TARIFF AGENT</span><span class="arr">▶</span><span class="blk">₹/kWh</span><span class="arr">▶</span><span class="blk">MONITORING AGENT</span><span class="arr">▶</span><span class="blk hot">BETTER PARAMS</span></div>
+  <p class="pp">The monitoring agent replays history under each candidate tariff with a price-elasticity model, penalizes any policy that loses revenue, and hill-climbs the surge cap, discount floor and thresholds episode by episode.</p>
+</section>
+
+<section class="sec cs">
+  <div class="csh"><span class="tag">BOSS</span><span class="t">HOW IT HOLDS UP</span><span class="dash"></span></div>
+  <div class="two"><div class="panel">
+        <div class="ck"><span class="am">CORE A</span><span>PRICING RULES</span></div>
+        <p>Predicted utilization becomes a multiplier on the ₹15/kWh baseline: surge above 80% to spread peak demand, hold between 30% and 80%, discount below 30% to attract off-peak sessions.</p>
+        <div class="grid2"><div><span>&gt; 80% UTIL</span><b>SURGE ≤ 1.5×</b></div><div><span>30–80%</span><b>HOLD 1.0×</b></div><div><span>&lt; 30% UTIL</span><b>DISCOUNT ≥ 0.7×</b></div><div><span>EFFECTIVE PRICE</span><b>₹15.10 / kWh</b></div></div>
+        <div class="cn">Customers pay about the same on average.</div>
+      </div><div class="panel">
+        <div class="ck"><span class="am">CORE B</span><span>FORECASTING</span></div>
+        <p>Calendar, lag and rolling features predict sessions, utilization and congestion per site-hour, with a time-based train/test split so the model never sees the future.</p>
+        <div class="grid2"><div><span>LOAD R²</span><b>0.90</b></div><div><span>UTILIZATION R²</span><b>0.80</b></div><div><span>CONGESTION AUC</span><b>0.96</b></div><div><span>ACCURACY</span><b>0.98</b></div></div>
+        <div class="cn">Recent activity and hour of day explain ~94% of the load model&#x27;s importance.</div>
+      </div></div>
+  <div class="two figs"><div class="panel dark">
+        <div class="phd"><span>FIG 1 ── LEARNING CURVE</span><span class="m">POLICY SCORE</span></div>
+        <div class="fbody"><div class="frow"><span class="fl">EPISODE 1</span><div class="fb"><div class="bar b" style="width:19.2%"></div><span>4.8</span></div></div><div class="frow"><span class="fl">EPISODE 30</span><div class="fb"><div class="bar r" style="width:94.4%"></div><span>23.6</span></div></div></div>
+        <div class="pft">The feedback loop improves its own decisions over 30 episodes</div>
+      </div></div>
+  <div class="verdict"><div class="vcol"><div class="vk red">VERDICT</div><div class="vh">+8.2% revenue and −22% peak wait at about the same average price, in simulation.</div><div class="vp">Demand is workplace-shaped and station utilization is low (median 6%), so the biggest opportunity is filling idle hours, not handling over-capacity.</div></div><div class="vcol"><div class="vk am">NEXT LEVEL</div><div class="vp"><span class="am">▸ </span>Validate on more sites.</div><div class="vp"><span class="am">▸ </span>Run real price experiments to estimate elasticity instead of assuming it.</div></div></div>
+</section>
+
+<section class="sec cs">
+  <div class="csh"><span class="tag">SELECT</span><span class="t">AGENTS</span><span class="dash"></span></div>
+  <div class="subs"><div class="sub"><div class="sart">DMD</div><div class="sbd"><div class="sk">P-07 · 01</div><div class="sh2">DEMAND AGENT</div><p>Predicts sessions, utilization and congestion probability for each site-hour.</p></div></div><div class="sub"><div class="sart">₹</div><div class="sbd"><div class="sk">P-07 · 02</div><div class="sh2">TARIFF AGENT</div><p>Turns predicted utilization into a surge, hold or discount multiplier.</p></div></div><div class="sub"><div class="sart">LRN</div><div class="sbd"><div class="sk">P-07 · 03</div><div class="sh2">MONITORING AGENT</div><p>Simulates response, scores revenue, wait and uplift, and hill-climbs the parameters.</p></div></div></div>
+</section>
+<section class="sec cs">
+  <div class="rules">
+    <div class="rcol"><div class="vk am">RULES OF PLAY</div><div class="rl"><div><span class="am">▸ </span>Train/test split by time: no peeking at the future.</div><div><span class="am">▸ </span>Any policy that loses revenue is penalized.</div><div><span class="am">▸ </span>Deterministic: RANDOM_STATE = 42, no external LLM or API.</div><div><span class="am">▸ </span>Prices use the brief&#x27;s ₹15/kWh, not a USD→INR conversion.</div></div></div>
+    <div class="rcol"><div class="vk am">ARTEFACTS</div><div class="rl"><div><span class="mu">DATA ▸ </span>ACN-Data · 14,999 sessions · Apr–Dec 2018</div><div><span class="mu">CROSS-CHECK ▸ </span>UrbanEV · 247 zones · Shenzhen</div><div><span class="mu">STACK ▸ </span>Python · pandas · scikit-learn · matplotlib</div><div><a href="https://github.com/lokifergusion9/EV-dynamic-tariff-optimization" target="_blank" rel="noopener noreferrer">[ ▸ SOURCE CODE ]</a></div><div><a href="https://github.com/lokifergusion9/EV-dynamic-tariff-optimization/blob/main/outputs/OP26_Project_Report.pdf" target="_blank" rel="noopener noreferrer">[ ▸ PROJECT REPORT ]</a></div></div></div>
+  </div>
+</section>
+
+<div class="foot cfoot">
+  <div class="cnav">
+    <a href="project-refundguard.html">◂ P-06 REFUNDGUARD</a>
+    <a class="am" href="projects.html">CONTINUE? ▸ ALL PROJECTS</a>
+    <a href="project-travelos.html">P-01 TRAVELOS ▸</a>
+  </div>
+</div>
+<div class="foot">
+  <div class="g">
+    <div><div class="h">LOKESH KUMAR</div><div class="bl">IIT Roorkee engineer building AI agents, LLM evals and data systems that change real decisions.</div></div>
+    <div>
+      <div class="h">CONTACT</div>
+      <div><span class="pre">MAIL ▸ </span><a href="mailto:lokeshkumar22119032@gmail.com">lokeshkumar22119032@gmail.com</a></div>
+      <div><span class="pre">GHUB ▸ </span><a href="https://github.com/lokifergusion9" target="_blank" rel="noopener noreferrer">github.com/lokifergusion9</a></div>
+      <div><span class="pre">LNKD ▸ </span><a href="https://www.linkedin.com/in/lokesh-kumar-1768262b9/" target="_blank" rel="noopener noreferrer">in/lokesh-kumar-1768262b9</a></div>
+    </div>
+    <div>
+      <div class="h">INDEX</div>
+      <div class="foot-links"><a href="index.html">HOME</a><a href="projects.html">PROJECTS</a><a href="index.html#skills">SKILLS</a><a href="index.html#photos">PHOTOS</a><a href="index.html#contact">CONTACT</a></div>
+    </div>
+  </div>
+  <div class="eof"><span>░▒▓ END OF FILE ▓▒░</span><span>LOKESH KUMAR · MMXXVI</span></div>
+</div>
+
+</body>
+</html>

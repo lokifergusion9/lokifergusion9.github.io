@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="obsidian">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Decoding Customer Value — Case file · Lokesh Kumar</title>
+<meta name="description" content="3,900 D2C customers in 5 loyalty tiers via MySQL CTEs; discounts drove zero lift, exposing 43% of revenue as promo-reliant.">
+<meta name="theme-color" content="#0C100E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230E9F55'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='700' fill='%23ffffff' text-anchor='middle'%3ELK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/case.css">
+<link rel="stylesheet" href="assets/theme.css">
+</head>
+<body>
+<div class="nav">
+  <div class="l">
+    <a class="pill" href="index.html">LOKESH KUMAR</a>
+    <span style="color:var(--dim)">│</span>
+    <span>AI AGENTS · DATA · OPS</span>
+  </div>
+  <div class="links">
+    <a href="index.html">HOME</a>
+    <a href="index.html#about">ABOUT</a>
+    <a href="index.html#work">WORK</a>
+    <span class="on">PROJECTS</span>
+    <a href="index.html#skills">SKILLS</a>
+    <a href="index.html#photos">PHOTOS</a>
+    <a href="index.html#contact">CONTACT</a>
+    <a href="assets/Lokesh-Kumar-Resume.pdf" target="_blank" rel="noopener">RÉSUMÉ ↗</a>
+  </div>
+</div>
+
+<div class="hud">
+  <div class="hl"><span><span class="am">CUSTOMERS</span>&nbsp; 3,900</span><span><span class="am">SQL</span>&nbsp; MYSQL 8</span><span><span class="am">BI</span>&nbsp; POWER BI</span><span><span class="am">LABELS GIVEN</span>&nbsp; NONE</span></div>
+  <div class="hr"><span>LEVEL <span class="am">P-04</span></span><span class="badge">PROMO RISK</span></div>
+</div>
+
+<section class="sec cs title">
+  <a class="back" href="projects.html">◂ ALL PROJECTS</a>
+  <div class="tgrid">
+    <div class="tcol">
+      <div class="kick">CASE FILE P-04 ── BUSINESS · BI</div>
+      <h1>CUST<br>VALUE</h1>
+      <div class="sub1">DECODING CUSTOMER VALUE — SQL-DRIVEN RETENTION STRATEGY</div>
+      <p class="lead">Is a D2C fashion brand building a loyal customer base, or renting revenue with discounts?</p><p class="">The data came with no loyalty score, no churn label and no timestamps, so every segment, metric and recommendation is engineered from explicit, traceable rules.</p>
+      <div class="rule"><div class="rk">THE CATCH</div><div>Every variable pair has |r| &lt; 0.05. Loyalty can&#x27;t be discovered in this data; it has to be constructed from transparent rules.</div></div>
+    </div>
+    <div class="scol">
+      <div class="screen">
+          <div class="sbar"><span>SCREEN ── FOUNDER DASHBOARD</span><span class="am">4 PANELS</span></div>
+          <div class="bigstat"><div class="v">43%</div><div class="s">OF REVENUE IS PROMO-RELIANT</div></div>
+          <div class="sfoot"><span class="blinkx">▸ OPEN DASHBOARD</span></div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec cs">
+  <div class="csh"><span class="tag">SCORE</span><span class="t">SCOREBOARD</span><span class="dash"></span></div>
+  <div class="tiles"><div class="tile"><div class="tl">PROMO-RELIANT</div><div class="tv">43%</div><div class="td">$99K of $233K revenue rides on discounts.</div></div><div class="tile"><div class="tl">DISCOUNT LIFT</div><div class="tv">≈$0</div><div class="td">−$0.85 per customer overall, −$0.70 within men only.</div></div><div class="tile"><div class="tl">IDEAL LOYALISTS</div><div class="tv">281</div><div class="td">7% of customers: full price and repeat buyers.</div></div><div class="tile"><div class="tl">AT-RISK</div><div class="tv">680</div><div class="td">Customers rating below 3, for service recovery.</div></div></div>
+</section>
+
+<section class="sec cs">
+  <div class="csh"><span class="tag">PATH</span><span class="t">METHOD</span><span class="dash"></span></div>
+  <div class="prow other"><span class="pl">LOOKS LIKE</span><span class="blk dash">DISCOUNT</span><span class="arr">▸</span><span class="blk dash">MORE ORDERS</span><span class="arr">▸</span><span class="blk dash hot">LOYALTY?</span></div>
+  <div class="prow"><span class="pl am">ACTUALLY</span><span class="blk">AUDIT</span><span class="arr">▶</span><span class="blk">FEATURES</span><span class="arr">▶</span><span class="blk">SQL SEGMENTS</span><span class="arr">▶</span><span class="blk">POWER BI</span><span class="arr">▶</span><span class="blk hot">PROMO SUNSET</span></div>
+  <p class="pp">Python audits the signal and engineers features, MySQL CTEs and window functions answer five business questions, and a four-panel founder dashboard shows the result.</p>
+</section>
+
+<section class="sec cs">
+  <div class="csh"><span class="tag">BOSS</span><span class="t">HOW IT HOLDS UP</span><span class="dash"></span></div>
+  <div class="two"><div class="panel">
+        <div class="ck"><span class="am">CORE A</span><span>LOYALTY RULES</span></div>
+        <p>Two competing loyalty definitions were tested. loyal_B (no discount and rating ≥ 4) is primary because loyal_A is still ~44% discount-driven.</p>
+        <div class="grid2"><div><span>LOYAL_A</span><b>FREQ + REPEAT</b></div><div><span>LOYAL_B</span><b>FULL PRICE + ≥4★</b></div><div><span>IDEAL</span><b>BOTH</b></div><div><span>VALUE SCORE</span><b>60 / 40 MIX</b></div></div>
+        <div class="cn">Weights and thresholds are documented judgement calls.</div>
+      </div><div class="panel">
+        <div class="ck"><span class="am">CORE B</span><span>AUDIT FINDINGS</span></div>
+        <p>Discount and promo flags were identical, every subscriber was discounted, and only men were ever discounted, so gender-sensitive findings were re-tested within men only.</p>
+        <div class="grid2"><div><span>PROMO FLAGS</span><b>IDENTICAL</b></div><div><span>SUBSCRIBERS</span><b>ALL DISCOUNTED</b></div><div><span>WOMEN DISCOUNTED</span><b>0 OF 1,248</b></div><div><span>MEN-ONLY LIFT</span><b>−$0.70</b></div></div>
+        <div class="cn">Observational, not causal: a promo holdout test is the next step.</div>
+      </div></div>
+  <div class="two figs"><div class="panel dark">
+        <div class="phd"><span>FIG 1 ── CUSTOMER SEGMENTS</span><span class="m">SHARE OF 3,900</span></div>
+        <div class="fbody"><div class="frow"><span class="fl">IDEAL</span><div class="fb"><div class="bar r" style="width:20.6%"></div><span>7.2%</span></div></div><div class="frow"><span class="fl">MARGIN-SAFE</span><div class="fb"><div class="bar r" style="width:48.3%"></div><span>16.9%</span></div></div><div class="frow"><span class="fl">DISC. REPEAT</span><div class="fb"><div class="bar b" style="width:36.6%"></div><span>12.8%</span></div></div><div class="frow"><span class="fl">BARGAIN</span><div class="fb"><div class="bar b" style="width:86.3%"></div><span>30.2%</span></div></div><div class="frow"><span class="fl">PASSIVE</span><div class="fb"><div class="bar b" style="width:93.7%"></div><span>32.8%</span></div></div></div>
+        <div class="pft">Red = full-price loyal segments</div>
+      </div></div>
+  <div class="verdict"><div class="vcol"><div class="vk red">VERDICT</div><div class="vh">A thin but real loyal core (7%), and margin given away on 43% of customers for zero measurable return.</div><div class="vp">North-star metric: full-price revenue share, 57% today. The strategy works if it rises while total revenue holds.</div></div><div class="vcol"><div class="vk am">RECOMMENDATIONS</div><div class="vp"><span class="am">▸ </span>Sunset promotions in two phases; never discount the loyal core.</div><div class="vp"><span class="am">▸ </span>Acquire Ideal-Customer lookalikes on behaviour, not demographics.</div><div class="vp"><span class="am">▸ </span>Invest in organic-demand states.</div><div class="vp"><span class="am">▸ </span>Service-recover the 680 at-risk customers with support, not discounts.</div></div></div>
+</section>
+
+<section class="sec cs">
+  <div class="rules">
+    <div class="rcol"><div class="vk am">RULES OF PLAY</div><div class="rl"><div><span class="am">▸ </span>One snapshot, no timestamps: retention can&#x27;t be measured directly.</div><div><span class="am">▸ </span>Rule-based segments, documented so they can be challenged.</div><div><span class="am">▸ </span>No margin or cost data: margin given away is inferred.</div><div><span class="am">▸ </span>Likely synthetic data: the method transfers better than the numbers.</div></div></div>
+    <div class="rcol"><div class="vk am">ARTEFACTS</div><div class="rl"><div><span class="mu">DATA ▸ </span>3,900 customers × 18 columns</div><div><span class="mu">PYTHON ▸ </span>Audit, cleaning, feature engineering</div><div><span class="mu">SQL ▸ </span>MySQL 8 · CTEs · window functions</div><div><span class="mu">BI ▸ </span>Power BI founder dashboard</div><div><a href="https://lokifergusion9.github.io/decoding-customer-value/founder_dashboard.html" target="_blank" rel="noopener noreferrer">[ ▸ DASHBOARD ]</a></div><div><a href="https://github.com/lokifergusion9/decoding-customer-value" target="_blank" rel="noopener noreferrer">[ ▸ SOURCE CODE ]</a></div><div><a href="https://github.com/lokifergusion9/decoding-customer-value/blob/main/executive_summary.md" target="_blank" rel="noopener noreferrer">[ ▸ EXECUTIVE SUMMARY ]</a></div></div></div>
+  </div>
+</section>
+
+<div class="foot cfoot">
+  <div class="cnav">
+    <a href="project-eta-graph.html">◂ P-03 ETAGRAPH</a>
+    <a class="am" href="projects.html">CONTINUE? ▸ ALL PROJECTS</a>
+    <a href="project-securebank.html">P-05 SECUREBANK ▸</a>
+  </div>
+</div>
+<div class="foot">
+  <div class="g">
+    <div><div class="h">LOKESH KUMAR</div><div class="bl">IIT Roorkee engineer building AI agents, LLM evals and data systems that change real decisions.</div></div>
+    <div>
+      <div class="h">CONTACT</div>
+      <div><span class="pre">MAIL ▸ </span><a href="mailto:lokeshkumar22119032@gmail.com">lokeshkumar22119032@gmail.com</a></div>
+      <div><span class="pre">GHUB ▸ </span><a href="https://github.com/lokifergusion9" target="_blank" rel="noopener noreferrer">github.com/lokifergusion9</a></div>
+      <div><span class="pre">LNKD ▸ </span><a href="https://www.linkedin.com/in/lokesh-kumar-1768262b9/" target="_blank" rel="noopener noreferrer">in/lokesh-kumar-1768262b9</a></div>
+    </div>
+    <div>
+      <div class="h">INDEX</div>
+      <div class="foot-links"><a href="index.html">HOME</a><a href="projects.html">PROJECTS</a><a href="index.html#skills">SKILLS</a><a href="index.html#photos">PHOTOS</a><a href="index.html#contact">CONTACT</a></div>
+    </div>
+  </div>
+  <div class="eof"><span>░▒▓ END OF FILE ▓▒░</span><span>LOKESH KUMAR · MMXXVI</span></div>
+</div>
+
+</body>
+</html>

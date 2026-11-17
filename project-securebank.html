@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="obsidian">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Securebank — Case file · Lokesh Kumar</title>
+<meta name="description" content="Router sends each message to an FAQ, account, card or escalation agent; re-ranked retrieval over the bank&#x27;s PDFs, PII masked before any model.">
+<meta name="theme-color" content="#0C100E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230E9F55'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='700' fill='%23ffffff' text-anchor='middle'%3ELK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/case.css">
+<link rel="stylesheet" href="assets/theme.css">
+</head>
+<body>
+<div class="nav">
+  <div class="l">
+    <a class="pill" href="index.html">LOKESH KUMAR</a>
+    <span style="color:var(--dim)">│</span>
+    <span>AI AGENTS · DATA · OPS</span>
+  </div>
+  <div class="links">
+    <a href="index.html">HOME</a>
+    <a href="index.html#about">ABOUT</a>
+    <a href="index.html#work">WORK</a>
+    <span class="on">PROJECTS</span>
+    <a href="index.html#skills">SKILLS</a>
+    <a href="index.html#photos">PHOTOS</a>
+    <a href="index.html#contact">CONTACT</a>
+    <a href="assets/Lokesh-Kumar-Resume.pdf" target="_blank" rel="noopener">RÉSUMÉ ↗</a>
+  </div>
+</div>
+
+<div class="hud">
+  <div class="hl"><span><span class="am">AGENTS</span>&nbsp; ROUTER + 4</span><span><span class="am">RAG</span>&nbsp; 6 POLICY PDFS</span><span><span class="am">EVALS</span>&nbsp; 28/28 E2E</span><span><span class="am">TESTS</span>&nbsp; 70+</span></div>
+  <div class="hr"><span>LEVEL <span class="am">P-05</span></span><span class="badge">CONFIRM BEFORE BLOCK</span></div>
+</div>
+
+<section class="sec cs title">
+  <a class="back" href="projects.html">◂ ALL PROJECTS</a>
+  <div class="tgrid">
+    <div class="tcol">
+      <div class="kick">CASE FILE P-05 ── AGENTS · RAG</div>
+      <h1>SECURE<br>BANK</h1>
+      <div class="sub1">MULTI-AGENT AI ASSISTANT FOR BANKING CUSTOMER SUPPORT</div>
+      <p class="lead">It answers policy questions from the bank&#x27;s own documents, shows a customer their balance and transactions, freezes or blocks cards with a confirmation step, and hands serious cases to a human.</p><p class="">Answers stream in word by word, a page refresh keeps the conversation, and customers can list their own support tickets.</p>
+      <div class="rule"><div class="rk">SAFE BY DESIGN</div><div>Card numbers, PAN and OTPs are masked before any AI model sees them, a customer can only reach their own data, and blocking a card always needs an explicit Yes.</div></div>
+    </div>
+    <div class="scol">
+      <div class="screen">
+          <div class="sbar"><span>SCREEN ── POLICY ANSWER</span><span class="am">MOCK DATA</span></div>
+          <img src="assets/projects/securebank.png" alt="SECUREBANK — MULTI-AGENT BANKING SUPPORT screenshot" loading="eager">
+          <div class="sfoot"><span class="blinkx">▸ ASK A QUESTION</span></div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec cs">
+  <div class="csh"><span class="tag">SCORE</span><span class="t">SCOREBOARD</span><span class="dash"></span></div>
+  <div class="tiles"><div class="tile"><div class="tl">END-TO-END EVALS</div><div class="tv">28/28</div><div class="td">FAQ, account, card, escalation and 9 security conversations.</div></div><div class="tile"><div class="tl">POLICY SEARCH</div><div class="tv">94%</div><div class="td">Answer in the top 4 chunks on 35 questions (MRR 0.83).</div></div><div class="tile"><div class="tl">ROUTING</div><div class="tv">31/31</div><div class="td">Every test message sent to the right specialist.</div></div><div class="tile"><div class="tl">TESTS</div><div class="tv">70+</div><div class="td">Unit and API tests; no API key or model download needed.</div></div></div>
+</section>
+
+<section class="sec cs">
+  <div class="csh"><span class="tag">PATH</span><span class="t">POLICY SEARCH</span><span class="dash"></span></div>
+  <div class="prow other"><span class="pl">MEANING ONLY</span><span class="blk dash">EMBED</span><span class="arr">▸</span><span class="blk dash">TOP 4</span><span class="arr">▸</span><span class="blk dash hot">86%</span></div>
+  <div class="prow"><span class="pl am">USED</span><span class="blk">LABELLED CHUNKS</span><span class="arr">▶</span><span class="blk">EMBED</span><span class="arr">▶</span><span class="blk">RE-RANK TOP 12</span><span class="arr">▶</span><span class="blk">KEEP 4</span><span class="arr">▶</span><span class="blk hot">94%</span></div>
+  <p class="pp">Keyword search and a bigger embedding model did not help on this corpus, so they are not in the code. A cross-encoder re-ranker and a document + section label on every chunk did.</p>
+</section>
+
+<section class="sec cs">
+  <div class="csh"><span class="tag">BOSS</span><span class="t">HOW IT HOLDS UP</span><span class="dash"></span></div>
+  <div class="two"><div class="panel">
+        <div class="ck"><span class="am">CORE A</span><span>GUARDRAILS</span></div>
+        <p>The guardrail hides sensitive numbers before a message reaches any model or is saved. Each agent has its own prompt and only the tools it needs; money and card actions happen in plain code behind those tools.</p>
+        <div class="grid2"><div><span>MASKED</span><b>CARD · PAN · OTP · PIN</b></div><div><span>IDENTITY</span><b>SIGNED TOKEN ONLY</b></div><div><span>PASSWORDS</span><b>BCRYPT + LOCKOUT</b></div><div><span>RATE LIMIT</span><b>20 MSG / MIN</b></div></div>
+        <div class="cn">A prompt-injection attempt leaks no data and is passed to a specialist.</div>
+      </div><div class="panel">
+        <div class="ck"><span class="am">CORE B</span><span>HUMAN IN THE LOOP</span></div>
+        <p>Card blocking uses LangGraph&#x27;s interrupt(): the graph pauses, the page shows Yes / No, and /approve resumes it. Fraud and hacked-account reports create a high-priority ticket.</p>
+        <div class="grid2"><div><span>PAUSE</span><b>INTERRUPT()</b></div><div><span>RESUME</span><b>/APPROVE</b></div><div><span>MEMORY</span><b>SQLITE CHECKPOINTS</b></div><div><span>ESCALATION</span><b>PRIORITY TICKET</b></div></div>
+        <div class="cn">Conversations survive restarts and page refreshes.</div>
+      </div></div>
+  <div class="two figs"><div class="panel dark">
+        <div class="phd"><span>FIG 1 ── ANSWER IN TOP 4 CHUNKS</span><span class="m">35 QUESTIONS</span></div>
+        <div class="fbody"><div class="frow"><span class="fl">MEANING</span><div class="fb"><div class="bar b" style="width:86.0%"></div><span>86%</span></div></div><div class="frow"><span class="fl">+ BM25</span><div class="fb"><div class="bar b" style="width:86.0%"></div><span>86%</span></div></div><div class="frow"><span class="fl">BGE + BM25</span><div class="fb"><div class="bar b" style="width:86.0%"></div><span>86%</span></div></div><div class="frow"><span class="fl">+ RE-RANK</span><div class="fb"><div class="bar b" style="width:89.0%"></div><span>89%</span></div></div><div class="frow"><span class="fl">+ LABELS</span><div class="fb"><div class="bar r" style="width:94.0%"></div><span>94%</span></div></div></div>
+        <div class="pft">Highlighted = the setup in use</div>
+      </div></div>
+  <div class="verdict"><div class="vcol"><div class="vk red">VERDICT</div><div class="vh">Measured, not guessed: 28/28 end-to-end conversations, 31/31 routing and 94% policy-search hit@4.</div><div class="vp">All data is mock data. On Groq&#x27;s free tier, running every eval several times a day can pause the app with HTTP 503 until the budget resets.</div></div><div class="vcol"><div class="vk am">NEXT LEVEL</div><div class="vp"><span class="am">▸ </span>A fallback model for when one is rate-limited.</div><div class="vp"><span class="am">▸ </span>A dashboard for the specialists who work the tickets.</div><div class="vp"><span class="am">▸ </span>A Redis-backed rate limiter for several server processes.</div></div></div>
+</section>
+
+<section class="sec cs">
+  <div class="csh"><span class="tag">SELECT</span><span class="t">SPECIALISTS</span><span class="dash"></span></div>
+  <div class="subs"><div class="sub"><div class="sart">FAQ</div><div class="sbd"><div class="sk">P-05 · 01</div><div class="sh2">FAQ AGENT</div><p>Searches and re-ranks the six policy PDFs and cites file and page.</p></div></div><div class="sub"><div class="sart">ACC</div><div class="sbd"><div class="sk">P-05 · 02</div><div class="sh2">ACCOUNT AGENT</div><p>Balance and transactions from the database through tools, never from model memory.</p></div></div><div class="sub"><div class="sart">CARD</div><div class="sbd"><div class="sk">P-05 · 03</div><div class="sh2">CARD AGENT</div><p>Freeze, block or dispute a card, always after an explicit Yes.</p></div></div><div class="sub"><div class="sart">SOS</div><div class="sbd"><div class="sk">P-05 · 04</div><div class="sh2">ESCALATION</div><p>Creates a high-priority ticket and gives safety advice.</p></div></div></div>
+</section>
+<section class="sec cs">
+  <div class="rules">
+    <div class="rcol"><div class="vk am">RULES OF PLAY</div><div class="rl"><div><span class="am">▸ </span>The model decides what to call, not how data is read or changed.</div><div><span class="am">▸ </span>The customer ID comes from the signed token only.</div><div><span class="am">▸ </span>Requests are logged with status and timing, never message text.</div><div><span class="am">▸ </span>Replies are escaped before display.</div></div></div>
+    <div class="rcol"><div class="vk am">ARTEFACTS</div><div class="rl"><div><span class="mu">STACK ▸ </span>Python · FastAPI · LangGraph · Groq</div><div><span class="mu">RAG ▸ </span>6 policy PDFs · cross-encoder re-ranker</div><div><span class="mu">AUTH ▸ </span>bcrypt · RS256 JWT · lockout</div><div><span class="mu">SHIP ▸ </span>Docker · GitHub Actions CI</div><div><a href="https://github.com/lokifergusion9/Banking-Support-Agent" target="_blank" rel="noopener noreferrer">[ ▸ SOURCE CODE ]</a></div></div></div>
+  </div>
+</section>
+
+<div class="foot cfoot">
+  <div class="cnav">
+    <a href="project-customer-value.html">◂ P-04 CUSTVALUE</a>
+    <a class="am" href="projects.html">CONTINUE? ▸ ALL PROJECTS</a>
+    <a href="project-refundguard.html">P-06 REFUNDGUARD ▸</a>
+  </div>
+</div>
+<div class="foot">
+  <div class="g">
+    <div><div class="h">LOKESH KUMAR</div><div class="bl">IIT Roorkee engineer building AI agents, LLM evals and data systems that change real decisions.</div></div>
+    <div>
+      <div class="h">CONTACT</div>
+      <div><span class="pre">MAIL ▸ </span><a href="mailto:lokeshkumar22119032@gmail.com">lokeshkumar22119032@gmail.com</a></div>
+      <div><span class="pre">GHUB ▸ </span><a href="https://github.com/lokifergusion9" target="_blank" rel="noopener noreferrer">github.com/lokifergusion9</a></div>
+      <div><span class="pre">LNKD ▸ </span><a href="https://www.linkedin.com/in/lokesh-kumar-1768262b9/" target="_blank" rel="noopener noreferrer">in/lokesh-kumar-1768262b9</a></div>
+    </div>
+    <div>
+      <div class="h">INDEX</div>
+      <div class="foot-links"><a href="index.html">HOME</a><a href="projects.html">PROJECTS</a><a href="index.html#skills">SKILLS</a><a href="index.html#photos">PHOTOS</a><a href="index.html#contact">CONTACT</a></div>
+    </div>
+  </div>
+  <div class="eof"><span>░▒▓ END OF FILE ▓▒░</span><span>LOKESH KUMAR · MMXXVI</span></div>
+</div>
+
+</body>
+</html>

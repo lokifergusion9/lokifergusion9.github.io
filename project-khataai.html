@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="obsidian">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Khataai — Case file · Lokesh Kumar</title>
+<meta name="description" content="LangGraph + MCP pipeline turning WhatsApp payment messages into a 10-field Sheets ledger, with exactly-once processing.">
+<meta name="theme-color" content="#0C100E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230E9F55'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='700' fill='%23ffffff' text-anchor='middle'%3ELK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/case.css">
+<link rel="stylesheet" href="assets/theme.css">
+</head>
+<body>
+<div class="nav">
+  <div class="l">
+    <a class="pill" href="index.html">LOKESH KUMAR</a>
+    <span style="color:var(--dim)">│</span>
+    <span>AI AGENTS · DATA · OPS</span>
+  </div>
+  <div class="links">
+    <a href="index.html">HOME</a>
+    <a href="index.html#about">ABOUT</a>
+    <a href="index.html#work">WORK</a>
+    <span class="on">PROJECTS</span>
+    <a href="index.html#skills">SKILLS</a>
+    <a href="index.html#photos">PHOTOS</a>
+    <a href="index.html#contact">CONTACT</a>
+    <a href="assets/Lokesh-Kumar-Resume.pdf" target="_blank" rel="noopener">RÉSUMÉ ↗</a>
+  </div>
+</div>
+
+<div class="hud">
+  <div class="hl"><span><span class="am">PIPELINE</span>&nbsp; LANGGRAPH + MCP</span><span><span class="am">LLM</span>&nbsp; GROQ · QWEN</span><span><span class="am">EVAL</span>&nbsp; 92 MSGS</span><span><span class="am">RUNS</span>&nbsp; EVERY 30 MIN</span></div>
+  <div class="hr"><span>LEVEL <span class="am">P-02</span></span><span class="badge">ZERO DUPLICATES</span></div>
+</div>
+
+<section class="sec cs title">
+  <a class="back" href="projects.html">◂ ALL PROJECTS</a>
+  <div class="tgrid">
+    <div class="tcol">
+      <div class="kick">CASE FILE P-02 ── LLM · AGENTS · EVALS</div>
+      <h1>KHATA<br>AI</h1>
+      <div class="sub1">WHATSAPP PAYMENT EXTRACTION PIPELINE</div>
+      <p class="lead">Small businesses run on WhatsApp: “Sharma Traders, Jaipur received ₹15,000, UTR12345”. KhataAI turns that chat stream into a 10-column Google Sheets ledger, a daily WhatsApp summary and a live dashboard.</p><p class="">Fully automatic and privacy-first, built on the Model Context Protocol.</p>
+      <div class="rule"><div class="rk">THE LLM GETS NO TOOLS</div><div>It only turns text into JSON. It cannot read chats, send messages or touch the Sheet: Python does all I/O and arithmetic.</div></div>
+    </div>
+    <div class="scol">
+      <div class="screen">
+          <div class="sbar"><span>SCREEN ── LEDGER</span><span class="am">TEST DATA</span></div>
+          <img src="assets/projects/khataai.png" alt="KHATAAI — WHATSAPP PAYMENT EXTRACTION PIPELINE screenshot" loading="eager">
+          <div class="sfoot"><span class="blinkx">▸ RUN PIPELINE NOW</span></div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec cs">
+  <div class="csh"><span class="tag">SCORE</span><span class="t">SCOREBOARD</span><span class="dash"></span></div>
+  <div class="tiles"><div class="tile"><div class="tl">HELD-OUT FIELD ACC.</div><div class="tv">100%</div><div class="td">v2 prompt on 30 messages never used for tuning (v1: 94.8%).</div></div><div class="tile"><div class="tl">HALLUCINATED FIELDS</div><div class="tv">0%</div><div class="td">Held-out set, v2 prompt (v1: 2.9%).</div></div><div class="tile"><div class="tl">EVAL SET</div><div class="tv">92</div><div class="td">62 dev + 30 held-out messages, English and Hinglish.</div></div><div class="tile"><div class="tl">TOOLS GIVEN TO LLM</div><div class="tv">0</div><div class="td">Down from 8 Sheets tools in v1.</div></div></div>
+</section>
+
+<section class="sec cs">
+  <div class="csh"><span class="tag">PATH</span><span class="t">V1 → V2</span><span class="dash"></span></div>
+  <div class="prow other"><span class="pl">V1 AGENT</span><span class="blk dash">LLM</span><span class="arr">▸</span><span class="blk dash">8 SHEETS TOOLS</span><span class="arr">▸</span><span class="blk dash">COUNT ROWS</span><span class="arr">▸</span><span class="blk dash hot">UNBOUNDED LOOP</span><span class=red>junk rows</span></div>
+  <div class="prow"><span class="pl am">V2 GRAPH</span><span class="blk">DISCOVER GROUPS</span><span class="arr">▶</span><span class="blk">FETCH</span><span class="arr">▶</span><span class="blk">FILTER NEW</span><span class="arr">▶</span><span class="blk">EXTRACT JSON</span><span class="arr">▶</span><span class="blk">WRITE SHEET</span><span class="arr">▶</span><span class="blk hot">MARK PROCESSED</span></div>
+  <p class="pp">Each node calls one small function and the routers are plain if/else. Messages are marked processed only after a successful write, so a failed run retries the same messages next time.</p>
+</section>
+
+<section class="sec cs">
+  <div class="csh"><span class="tag">BOSS</span><span class="t">HOW IT HOLDS UP</span><span class="dash"></span></div>
+  <div class="two"><div class="panel">
+        <div class="ck"><span class="am">CORE A</span><span>EVALUATION</span></div>
+        <p>Hand-labelled synthetic sets, scored field by field after normalisation. Five of v1&#x27;s six dev failures were one pattern: a business name put in client_name. v2 defines every field.</p>
+        <div class="grid2"><div><span>PRECISION</span><b>96.7%</b></div><div><span>RECALL</span><b>100%</b></div><div><span>FIELD ACCURACY</span><b>100%</b></div><div><span>FULLY CORRECT</span><b>96.7%</b></div></div>
+        <div class="cn">Held-out set, v2 prompt, 3 runs with identical scores.</div>
+      </div><div class="panel">
+        <div class="ck"><span class="am">CORE B</span><span>RELIABILITY</span></div>
+        <p>SQLite dedup plus commit-after-write, a cross-process lock so the scheduler and the dashboard button never double-ingest, and Pydantic validation with one retry.</p>
+        <div class="grid2"><div><span>DEDUP</span><b>SQLITE</b></div><div><span>LOCK</span><b>SINGLE-RUN</b></div><div><span>OUTPUT</span><b>PYDANTIC</b></div><div><span>EXIT CODES</span><b>0 OK · 1 ERR</b></div></div>
+        <div class="cn">Known failure: v2 reads one delivery-order message per set as a transaction.</div>
+      </div></div>
+  <div class="two figs"><div class="panel dark">
+        <div class="phd"><span>FIG 1 ── HELD-OUT RESULTS</span><span class="m">V1 vs V2 PROMPT</span></div>
+        <div class="fbody"><div class="frow"><span class="fl">V1 FIELD</span><div class="fb"><div class="bar b" style="width:94.8%"></div><span>94.8%</span></div></div><div class="frow"><span class="fl">V2 FIELD</span><div class="fb"><div class="bar r" style="width:100.0%"></div><span>100%</span></div></div><div class="frow"><span class="fl">V1 MSGS</span><div class="fb"><div class="bar b" style="width:80.0%"></div><span>80%</span></div></div><div class="frow"><span class="fl">V2 MSGS</span><div class="fb"><div class="bar r" style="width:96.7%"></div><span>96.7%</span></div></div></div>
+        <div class="pft">FIELD = field accuracy · MSGS = messages fully correct</div>
+      </div></div>
+  <div class="verdict"><div class="vcol"><div class="vk red">VERDICT</div><div class="vh">Eval first, prompt second: held-out field accuracy went from 94.8% to 100%.</div><div class="vp">The eval also caught a production bug: 20 messages per call needed ~1,900 output tokens, above Groq&#x27;s free-tier limit, so extraction now runs in batches of 5 with backoff.</div></div><div class="vcol"><div class="vk am">NEXT LEVEL</div><div class="vp"><span class="am">▸ </span>Persistent MCP sessions (each tool call starts the server today, ~6 s).</div><div class="vp"><span class="am">▸ </span>Message-ID based dedup instead of full-text dedup.</div><div class="vp"><span class="am">▸ </span>Optional allowlist for individual chats.</div><div class="vp"><span class="am">▸ </span>Always-on listener instead of 30-minute polling.</div></div></div>
+</section>
+
+<section class="sec cs">
+  <div class="csh"><span class="tag">SELECT</span><span class="t">ENTRY POINTS</span><span class="dash"></span></div>
+  <div class="subs"><div class="sub"><div class="sart">RUN</div><div class="sbd"><div class="sk">P-02 · 01</div><div class="sh2">CLIENT.PY</div><p>Every 30 minutes or from the dashboard button: new WhatsApp messages → Sheet.</p></div></div><div class="sub"><div class="sart">SUM</div><div class="sbd"><div class="sk">P-02 · 02</div><div class="sh2">SUMMARY.PY</div><p>Daily at 21:00: today&#x27;s totals → WhatsApp, in plain Python math.</p></div></div><div class="sub"><div class="sart">DASH</div><div class="sbd"><div class="sk">P-02 · 03</div><div class="sh2">DASHBOARD.PY</div><p>KPIs, filters, charts, the ledger and a Run pipeline now button.</p></div></div></div>
+</section>
+<section class="sec cs">
+  <div class="csh"><span class="tag">LEVEL MAP</span><span class="t">ROUTES</span><span class="dash"></span></div>
+  <div class="miles"><div class="mile clear"><div class="mh"><span>M1</span><span>CLEAR</span></div><div class="mn">NEW + TRANSACTIONS</div><div class="md">extract → write → mark</div></div><div class="mile clear"><div class="mh"><span>M2</span><span>CLEAR</span></div><div class="mn">NO NEW MESSAGES</div><div class="md">filter → end</div></div><div class="mile clear"><div class="mh"><span>M3</span><span>CLEAR</span></div><div class="mn">ONLY CHIT-CHAT</div><div class="md">marked, never resent</div></div><div class="mile locked"><div class="mh"><span>M4</span><span>LOCKED</span></div><div class="mn">LLM FAILS TWICE</div><div class="md">nothing marked, retried</div></div><div class="mile locked"><div class="mh"><span>M5</span><span>LOCKED</span></div><div class="mn">SHEET WRITE FAILS</div><div class="md">nothing marked, retried</div></div></div>
+</section>
+<section class="sec cs">
+  <div class="rules">
+    <div class="rcol"><div class="vk am">RULES OF PLAY</div><div class="rl"><div><span class="am">▸ </span>The LLM gets text, never tools.</div><div><span class="am">▸ </span>Mark processed only after a successful write.</div><div><span class="am">▸ </span>Python copies Date &amp; Time and Original Message; the LLM never types them.</div><div><span class="am">▸ </span>The summary refuses to post into a monitored group.</div></div></div>
+    <div class="rcol"><div class="vk am">ARTEFACTS</div><div class="rl"><div><span class="mu">STACK ▸ </span>Python · LangGraph · MCP · Groq · Pydantic</div><div><span class="mu">STORAGE ▸ </span>Google Sheets · SQLite</div><div><span class="mu">UI ▸ </span>Streamlit dashboard</div><div><span class="mu">SCHEDULE ▸ </span>Windows Task Scheduler</div><div><a href="https://mcp-financial-automation-37ajappgn996heqhqhrsq4h.streamlit.app/" target="_blank" rel="noopener noreferrer">[ ▸ LIVE DEMO ]</a></div><div><a href="https://github.com/lokifergusion9/Khata-AI" target="_blank" rel="noopener noreferrer">[ ▸ SOURCE CODE ]</a></div></div></div>
+  </div>
+</section>
+
+<div class="foot cfoot">
+  <div class="cnav">
+    <a href="project-travelos.html">◂ P-01 TRAVELOS</a>
+    <a class="am" href="projects.html">CONTINUE? ▸ ALL PROJECTS</a>
+    <a href="project-eta-graph.html">P-03 ETAGRAPH ▸</a>
+  </div>
+</div>
+<div class="foot">
+  <div class="g">
+    <div><div class="h">LOKESH KUMAR</div><div class="bl">IIT Roorkee engineer building AI agents, LLM evals and data systems that change real decisions.</div></div>
+    <div>
+      <div class="h">CONTACT</div>
+      <div><span class="pre">MAIL ▸ </span><a href="mailto:lokeshkumar22119032@gmail.com">lokeshkumar22119032@gmail.com</a></div>
+      <div><span class="pre">GHUB ▸ </span><a href="https://github.com/lokifergusion9" target="_blank" rel="noopener noreferrer">github.com/lokifergusion9</a></div>
+      <div><span class="pre">LNKD ▸ </span><a href="https://www.linkedin.com/in/lokesh-kumar-1768262b9/" target="_blank" rel="noopener noreferrer">in/lokesh-kumar-1768262b9</a></div>
+    </div>
+    <div>
+      <div class="h">INDEX</div>
+      <div class="foot-links"><a href="index.html">HOME</a><a href="projects.html">PROJECTS</a><a href="index.html#skills">SKILLS</a><a href="index.html#photos">PHOTOS</a><a href="index.html#contact">CONTACT</a></div>
+    </div>
+  </div>
+  <div class="eof"><span>░▒▓ END OF FILE ▓▒░</span><span>LOKESH KUMAR · MMXXVI</span></div>
+</div>
+
+</body>
+</html>

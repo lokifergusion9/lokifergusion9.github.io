@@ -1,543 +1,350 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="obsidian">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lokesh Kumar — Data, AI Agents &amp; Operations</title>
-<meta name="description" content="Lokesh Kumar — IIT Roorkee Production &amp; Industrial Engineer building agentic AI systems, logistics network intelligence and data-driven retention strategy.">
+<title>Lokesh Kumar — AI Agents · Data · Ops</title>
+<meta name="description" content="Lokesh Kumar — IIT Roorkee engineer building AI agents, LLM evaluation pipelines and data systems that change real decisions.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Lokesh Kumar — Data, AI Agents &amp; Operations">
-<meta property="og:description" content="IIT Roorkee engineer building agentic AI systems, graph-based logistics models and SQL-driven retention strategy.">
+<meta property="og:title" content="Lokesh Kumar — AI Agents · Data · Ops">
+<meta property="og:description" content="IIT Roorkee engineer building AI agents, LLM evals and data systems that change real decisions.">
 <meta property="og:url" content="https://lokifergusion9.github.io/">
 <meta property="og:image" content="https://lokifergusion9.github.io/assets/lokesh.jpg">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#0B0E14">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0E14'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='28' font-weight='700' fill='%236FE3C4' text-anchor='middle'%3ELK%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#0C100E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230E9F55'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='700' fill='%23ffffff' text-anchor='middle'%3ELK%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#0B0E14;--surface:#111623;--surface2:#151C2C;
-  --border:rgba(148,163,184,.14);--borderHi:rgba(148,163,184,.28);
-  --ink:#E3E9F2;--ink2:#94A1B5;--ink3:#6B788C;
-  --accent:#6FE3C4;--accentHi:#A5F0DC;--neg:#E8927C;
-  --sans:'Instrument Sans','Segoe UI',system-ui,-apple-system,Helvetica,Arial,sans-serif;
-  --disp:'Space Grotesk','Segoe UI',system-ui,sans-serif;
-  --mono:'JetBrains Mono','Cascadia Mono',Consolas,ui-monospace,monospace;
-  --ease:cubic-bezier(.2,.7,.2,1);
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{color:var(--accent);text-decoration:none;transition:color .2s}
-a:hover{color:var(--accentHi)}
-b{color:var(--ink);font-weight:600}
-::selection{background:var(--accent);color:var(--bg)}
-::-webkit-scrollbar{width:10px}
-::-webkit-scrollbar-thumb{background:#1E2836;border-radius:5px}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
-
-#spot{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(650px at 24% 30%,rgba(111,227,196,.07),transparent 80%)}
-
-.wrap{position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:0 20px}
-.rail{padding:56px 0 8px}
-main{padding:24px 0 48px;min-width:0}
-
-/* ---- rail ---- */
-.pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);border:1px solid var(--border);background:var(--surface);padding:6px 12px;border-radius:999px;margin-bottom:24px}
-.pill i{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2.4s infinite}
-h1{margin:0;font-family:var(--disp);font-weight:700;font-size:clamp(40px,9vw,54px);line-height:1.02;letter-spacing:-.03em}
-h1 a{color:var(--ink)}
-.role{margin:14px 0 0;font-family:var(--disp);font-weight:500;font-size:19px;letter-spacing:-.01em}
-.typed{font-family:var(--mono);font-size:13.5px;color:var(--ink2);margin-top:14px;min-height:3.2em}
-.typed .t{color:var(--ink)}
-.typed .c{display:inline-block;width:8px;height:1.1em;background:var(--accent);vertical-align:text-bottom;margin-left:3px;animation:blink 1.1s steps(1) infinite}
-.lede{margin:16px 0 0;color:var(--ink2);font-size:15.5px;max-width:38ch}
-nav{display:none}
-.social{display:flex;align-items:center;flex-wrap:wrap;gap:18px;margin-top:28px}
-.social a.ic{color:var(--ink2);display:inline-flex;transition:color .2s,transform .2s}
-.social a.ic:hover{color:var(--accent);transform:translateY(-2px)}
-.ulink{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2);border-bottom:1px solid var(--border);padding-bottom:2px}
-.ulink:hover{border-color:var(--accent)}
-
-/* ---- sections ---- */
-section{scroll-margin-top:32px;padding:48px 0 24px}
-.sh{display:flex;align-items:center;gap:14px;margin-bottom:26px}
-.sh span{font-family:var(--mono);font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);white-space:nowrap}
-.sh::after{content:"";flex:1;height:1px;background:var(--border)}
-.prose p{margin:0 0 16px;color:var(--ink2);font-size:16.5px;line-height:1.7}
-
-.photo{float:right;width:min(220px,44%);margin:6px 0 16px 22px;position:relative;border:1px solid var(--borderHi);border-radius:14px;overflow:hidden;background:var(--surface2)}
-.photo img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:58% 62%;display:block;transition:transform .6s var(--ease)}
-.photo:hover img{transform:scale(1.03)}
-.photo .cap{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 10px;background:linear-gradient(0deg,rgba(4,7,12,.85),transparent);font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:#E6EDF6;text-transform:uppercase}
-.photo .k{position:absolute;width:12px;height:12px;border:0 solid var(--accent);opacity:.9}
-.k.a{top:9px;left:9px;border-left-width:1px;border-top-width:1px}
-.k.b{top:9px;right:9px;border-right-width:1px;border-top-width:1px}
-
-.stats{clear:both;display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:28px}
-.stat{border:1px solid var(--border);border-radius:12px;background:var(--surface);padding:16px 18px}
-.stat .n{font-family:var(--mono);font-size:24px;font-weight:600;letter-spacing:-.02em;line-height:1;color:var(--accent)}
-.stat .l{font-size:12px;color:var(--ink2);margin-top:8px;line-height:1.4}
-
-/* experience */
-.job{display:grid;grid-template-columns:1fr;gap:6px;padding:18px;margin:0 -18px;border-radius:12px;transition:background .3s,opacity .3s}
-.job:hover{background:var(--surface)}
-.when{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);padding-top:4px}
-h3{margin:0;font-family:var(--disp);font-size:17px;font-weight:600;letter-spacing:-.01em}
-h3 em{font-style:normal;color:var(--accent)}
-.sub{margin:2px 0 10px;font-family:var(--mono);font-size:11.5px;color:var(--ink3)}
-.ticks{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px}
-.ticks li{position:relative;padding-left:18px;color:var(--ink2);font-size:14.5px;line-height:1.55}
-.ticks li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:1px;background:var(--accent)}
-.group{margin:18px 0 6px;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3)}
-
-/* projects */
-.cards{display:flex;flex-direction:column;gap:14px}
-.card{border:1px solid var(--border);border-radius:14px;background:var(--surface);padding:22px;transition:border-color .3s,transform .3s,opacity .3s}
-.card:hover{border-color:var(--borderHi);transform:translateY(-3px)}
-.card .top{display:flex;align-items:baseline;justify-content:space-between;gap:6px 16px;flex-wrap:wrap}
-.card h3{font-size:19px}
-.card h3 a{color:var(--ink)}
-.card h3 a:hover{color:var(--accent)}
-.tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
-.card p{margin:12px 0 0;color:var(--ink2);font-size:14.8px;line-height:1.65;max-width:70ch}
-.kpis{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:14px;font-family:var(--mono);font-size:12px;color:var(--ink2)}
-.kpis .g{color:var(--accent)}
-.kpis .r{color:var(--neg)}
-.links{display:flex;flex-wrap:wrap;gap:16px;margin-top:14px}
-.links a{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase}
-.links a.sec{color:var(--ink2)}
-.links a.sec:hover{color:var(--accent)}
-.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
-.chips span{font-family:var(--mono);font-size:11px;color:var(--accent);background:rgba(111,227,196,.1);border:1px solid rgba(111,227,196,.24);padding:4px 10px;border-radius:999px}
-.more{display:inline-flex;align-items:center;gap:8px;margin-top:26px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--border);padding-bottom:3px}
-.more:hover{border-color:var(--accent)}
-
-/* skills */
-.srow{display:grid;grid-template-columns:1fr;gap:10px;padding:14px 0;border-bottom:1px solid var(--border)}
-.srow:last-child{border-bottom:0}
-.srow > span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);padding-top:4px}
-.srow div{display:flex;flex-wrap:wrap;gap:7px}
-.srow div span{font-size:12.5px;color:var(--ink2);border:1px solid var(--border);background:var(--surface);padding:4px 11px;border-radius:999px}
-
-/* education & leadership */
-.edu{display:flex;flex-wrap:wrap;gap:14px 18px;align-items:center;border:1px solid var(--border);border-radius:14px;background:var(--surface);padding:20px 22px}
-.edu .logo{width:48px;height:48px;border-radius:11px;border:1px solid var(--borderHi);display:grid;place-items:center;font-family:var(--mono);font-weight:600;color:var(--accent);background:var(--surface2);font-size:13px;flex:none}
-.edu .nm{flex:1;min-width:200px}
-.edu .nm b{display:block;font-family:var(--disp);font-size:16.5px}
-.edu .nm span{display:block;color:var(--ink2);font-size:13.5px;margin-top:3px}
-.edu .yr{font-family:var(--mono);font-size:12px;color:var(--ink3)}
-.edu .yr b{color:var(--accent);font-weight:500}
-.lead{display:flex;flex-direction:column;margin-top:22px}
-.lrow{display:grid;grid-template-columns:1fr;gap:6px;padding:16px 0;border-bottom:1px solid var(--border)}
-.lrow > span{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);padding-top:3px}
-.lrow p{margin:0;color:var(--ink2);font-size:14.5px;line-height:1.6}
-.awards{display:grid;grid-template-columns:1fr;gap:12px;margin-top:24px}
-.awards .stat .n{font-size:20px}
-.awards .stat .l{font-size:12.5px;line-height:1.45}
-
-/* contact */
-.cta{margin:0;font-family:var(--disp);font-weight:700;font-size:clamp(28px,6vw,40px);letter-spacing:-.02em;line-height:1.1}
-.cta span{color:var(--accent)}
-.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--disp);font-size:14px;font-weight:600;padding:12px 20px;border-radius:10px;border:1px solid var(--borderHi);background:var(--surface);color:var(--ink);transition:border-color .2s,background .2s,transform .18s}
-.btn:hover{border-color:var(--accent);color:var(--ink);transform:translateY(-2px)}
-.btn.p{border-color:var(--accent);background:rgba(111,227,196,.12);color:var(--accent)}
-.btn.p:hover{background:rgba(111,227,196,.22);color:var(--accentHi)}
-.clinks{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:30px;font-family:var(--mono);font-size:12.5px;word-break:break-all}
-.clinks a{color:var(--ink2)}
-.clinks a:hover{color:var(--accent)}
-footer{margin:64px 0 0;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--ink3)}
-
-/* reveal: only hides things when JS has opted in */
-.js [data-rv]{opacity:0;transform:translateY(22px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
-.js [data-rv].in{opacity:1;transform:none}
-
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(111,227,196,.5)}70%{box-shadow:0 0 0 8px rgba(111,227,196,0)}100%{box-shadow:0 0 0 0 rgba(111,227,196,0)}}
-@keyframes blink{0%,55%{opacity:1}56%,100%{opacity:0}}
-
-@media (min-width:640px){
-  .wrap{padding:0 32px}
-  .stats{grid-template-columns:repeat(4,1fr)}
-  .awards{grid-template-columns:repeat(3,1fr)}
-  .job,.lrow{grid-template-columns:130px 1fr;gap:20px}
-  .srow{grid-template-columns:160px 1fr;gap:16px}
-  .card{padding:24px 26px}
-}
-@media (min-width:1024px){
-  .wrap{display:grid;grid-template-columns:minmax(340px,5fr) 7fr;gap:0 64px;padding:0 48px}
-  .rail{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:96px 0 64px}
-  main{padding:72px 0 64px}
-  section:first-child{padding-top:24px}
-  .typed{min-height:1.7em}
-  nav{display:flex;flex-direction:column;gap:2px;margin-top:52px}
-  nav a{display:flex;align-items:center;gap:14px;padding:9px 0;color:var(--ink3)}
-  nav a i{width:28px;height:1px;background:var(--ink3);transition:width .3s var(--ease),background .3s}
-  nav a span{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase}
-  nav a:hover,nav a.on{color:var(--ink)}
-  nav a:hover i,nav a.on i{width:60px;background:var(--accent)}
-  .social{margin-top:0}
-  .dim:hover > .dimi:not(:hover){opacity:.5}
-}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
-  .js [data-rv]{opacity:1;transform:none}
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/theme.css">
 </head>
 <body>
-<div id="spot"></div>
 
-<div class="wrap">
-  <header class="rail">
+<div class="nav">
+  <div class="l">
+    <span class="pill">LOKESH KUMAR</span>
+    <span style="color:var(--dim)">│</span>
+    <span>AI AGENTS · DATA · OPS</span>
+  </div>
+  <div class="links">
+    <a href="#about">ABOUT</a>
+    <a href="#work">WORK</a>
+    <a href="projects.html">PROJECTS</a>
+    <a href="#skills">SKILLS</a>
+    <a href="#beyond">BEYOND</a>
+    <a href="#photos">PHOTOS</a>
+    <a href="#contact">CONTACT</a>
+    <a href="assets/Lokesh-Kumar-Resume.pdf" target="_blank" rel="noopener">RÉSUMÉ ↗</a>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="sec" style="padding-top:64px" id="about">
+  <div class="stack">
+    <div class="idname">
+      <div class="who">LOKESH<br>KUMAR</div>
+      <div class="sub">B.TECH · IIT ROORKEE · PRODUCTION &amp; INDUSTRIAL ENGINEERING</div>
+    </div>
+
+    <div class="frame status">
+      <div class="head"><span>SYS.STATUS</span><span>▓▒░</span></div>
+      <div class="body">
+        <div class="row"><span>STATUS</span><span>OPEN TO WORK</span></div>
+        <div class="row"><span>ROLES</span><span>FDE · AI ENG · AI PRODUCT</span></div>
+        <div class="row"><span>BASE</span><span>INDIA</span></div>
+        <div class="row"><span>EDU</span><span>B.TECH · IIT ROORKEE '26</span></div>
+        <div class="row"><span>STACK</span><span>PYTHON · SQL · LANGGRAPH</span></div>
+        <div class="row"><span>LAST ROLE</span><span>CANDEX AI · OCT 2026</span></div>
+        <div class="div"></div>
+        <div class="note">Happy to walk through any project, the code behind it, or the decision it changed.</div>
+        <div class="open"><span class="blink">●</span>AVAILABLE NOW</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 01 WHAT I DO -->
+<section class="sec">
+  <div class="sh"><span class="num">01</span><span class="t">WHAT I DO</span><span class="fill" aria-hidden="true">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span></div>
+  <div class="tracks">
+    <div class="track"><div class="lb">TRACK A</div><div class="v">BUILD</div><p>LangGraph agents with human-in-the-loop approval, FastAPI backends and multi-tenant data with PostgreSQL Row-Level Security. Shipped on Docker and AWS.</p></div>
+    <div class="track"><div class="lb">TRACK B</div><div class="v">EVALUATE</div><p>LLM eval suites before prompt tweaks: 92-message Hinglish set for KhataAI (94.8% → 100% held-out), evals that cut hallucinations 20% across 50,000+ live chats.</p></div>
+    <div class="track"><div class="lb">TRACK C</div><div class="v">DEPLOY WITH CUSTOMERS</div><p>14-day client pilots, transcript mining, KPI dashboards and vendor deals. I sit with the people who use the system and change it until the number moves.</p></div>
+  </div>
+</section>
+
+<!-- PLATE -->
+<section class="sec">
+  <div class="frame">
+    <div class="bar"><span class="k">PLATE I ── THE OPERATOR</span><span>IIT ROORKEE · PRODUCTION &amp; INDUSTRIAL ENGG.</span></div>
+    <div class="plate">
+      <div class="art"><div class="crop"><img src="assets/lokesh.jpg" alt="Lokesh Kumar at IIT Roorkee" width="960" height="1280" loading="lazy"></div></div>
+      <div class="txt">
+        <div class="sub">INDUSTRIAL ENGINEER · BUILDER</div>
+        <div class="h">MEASURE. BUILD. SHIP.</div>
+        <p><b>KhataAI</b> turns WhatsApp payment messages into a clean ledger with <b>100% field accuracy</b> on a held-out set. A logistics graph cut ETA error from <b>107 to 32 minutes</b>. A D2C brand's data showed <b>43% of its revenue</b> leaned on discounts that drove zero extra spend.</p>
+        <p>Outside the terminal I led a <b>13-member expedition to Auden's Col (5,500m)</b>, founded the Rajasthan Cultural Association, and captained IIT Roorkee's volleyball team.</p>
+        <p class="last">Plans meet messy reality. The people who win measure, adapt and keep the system moving.</p>
+        <div class="mottos"><span>■ NO MODEL WITHOUT A DECISION</span><span>■ NO SEND WITHOUT APPROVAL</span></div>
+      </div>
+    </div>
+    <div class="pfoot"><span>EVAL FIRST · SHIP SECOND</span><span>OPERATOR · MMXXVI</span></div>
+  </div>
+</section>
+
+<!-- 02 WORK -->
+<section class="sec" id="work">
+  <div class="sh"><span class="num">02</span><span class="t">EXPERIENCE</span><span class="fill" aria-hidden="true">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span></div>
+
+  <div class="job">
+    <div class="bar"><span class="k">AUG 2026 ── OCT 2026</span><span>INTERNSHIP</span></div>
+    <div class="in">
+      <div class="role">AI PRODUCT INTERN · CANDEX AI</div>
+      <div class="ctx">OMNICHANNEL AI CALLING AGENTS</div>
+      <ul class="ticks">
+        <li>Authored PRDs and user stories, raising <b>50+ Jira tickets</b> and running sprint grooming for an omnichannel AI calling agent.</li>
+        <li>Drove QA and UAT on voice/WhatsApp flows; designed LLM evals, cutting hallucinations <b>20%</b> across 50,000+ live chats.</li>
+        <li>Led 14-day client pilots, mining transcripts for insights and tracking KPIs on dashboards; pilot-to-paid rate rose <b>15%</b>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="job">
+    <div class="bar"><span class="k">JAN 2026 ── JUN 2026</span><span>FULL-TIME</span></div>
+    <div class="in">
+      <div class="role">FOUNDER'S OFFICE · MOUNT DIGGERS</div>
+      <div class="ctx">ADVENTURE TRAVEL &amp; HOSPITALITY</div>
+      <div class="grp">▸ TRAVELOS — AI SAAS CRM</div>
+      <ul class="ticks">
+        <li>Built <b>TravelOS</b>, a multi-tenant AI SaaS CRM (FastAPI, React) with 8 modules automating itineraries, creatives and leads. <a href="https://github.com/lokifergusion9/Travel-OS" target="_blank" rel="noopener noreferrer">CODE ▸</a></li>
+        <li>Developed <b>4 AI agents (LangGraph)</b> for itineraries, creatives, outreach and follow-ups with human-in-the-loop approval.</li>
+        <li>Secured data with <b>PostgreSQL Row-Level Security</b>, JWT and HMAC-verified webhooks; deployed on AWS EC2 via Docker.</li>
+      </ul>
+      <div class="grp">▸ OPERATIONS &amp; GROWTH</div>
+      <ul class="ticks">
+        <li>Managed logistics and vendor coordination for 30+ trips serving 1,500+ travelers, cutting costs <b>15%</b> through negotiations.</li>
+        <li>Benchmarked pricing, demand and competitors across 50+ hospitality properties to drive expansion and vendor selection.</li>
+        <li>Built an 8+ college ambassador network and closed <b>3+ B2B trek partnerships</b> through direct corporate outreach.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 03 PROJECTS -->
+<section class="sec" id="projects">
+  <div class="sh"><span class="num">03</span><span class="t">PROJECTS</span><span class="fill" aria-hidden="true">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span><a href="projects.html">ALL ▸</a></div>
+  <div class="cards four">
+    <div class="card poster" tabindex="0">
+      <span class="no">P-01</span>
+      <div class="face"><img src="assets/posters/travelos.webp" alt="TRAVELOS — AI OPERATING SYSTEM FOR TRAVEL AGENCIES poster" loading="lazy" width="960" height="600"></div>
+      <span class="hint"><span class="h">HOVER ▸ SPEC</span><span class="t">TAP ▸ SPEC</span></span>
+      <div class="spec">
+        <div class="sb">SPEC ── P-01</div>
+        <div class="ti">TRAVELOS — AI OPERATING SYSTEM FOR TRAVEL AGENCIES</div>
+        <div class="tg">AI SAAS · AGENTS</div>
+        <p>Multi-tenant workspace where LangGraph agents draft itineraries, creatives, vendor deals and follow-ups, and a human approves every step.</p>
+        <div class="kpis"><span>HUMAN-IN-THE-LOOP</span><span>RLS TENANCY</span><span>24 + 5 TESTS</span></div>
+        <div class="op"><a href="project-travelos.html">[ ▸ OPEN CASE FILE ]</a><a href="https://github.com/lokifergusion9/Travel-OS" target="_blank" rel="noopener noreferrer">CODE ▸</a></div>
+      </div>
+    </div>
+    <div class="card poster" tabindex="0">
+      <span class="no">P-02</span>
+      <div class="face"><img src="assets/posters/khataai.webp" alt="KHATAAI — WHATSAPP PAYMENT EXTRACTION PIPELINE poster" loading="lazy" width="960" height="600"></div>
+      <span class="hint"><span class="h">HOVER ▸ SPEC</span><span class="t">TAP ▸ SPEC</span></span>
+      <div class="spec">
+        <div class="sb">SPEC ── P-02</div>
+        <div class="ti">KHATAAI — WHATSAPP PAYMENT EXTRACTION PIPELINE</div>
+        <div class="tg">LLM · AGENTS · EVALS</div>
+        <p>LangGraph + MCP pipeline turning WhatsApp payment messages into a 10-field Sheets ledger, with exactly-once processing.</p>
+        <div class="kpis"><span>94.8% → 100% HELD-OUT</span><span>92-MSG EVAL SUITE</span></div>
+        <div class="op"><a href="project-khataai.html">[ ▸ OPEN CASE FILE ]</a><a href="https://mcp-financial-automation-37ajappgn996heqhqhrsq4h.streamlit.app/" target="_blank" rel="noopener noreferrer">LIVE DEMO ▸</a><a href="https://github.com/lokifergusion9/Khata-AI" target="_blank" rel="noopener noreferrer">CODE ▸</a></div>
+      </div>
+    </div>
+    <div class="card poster" tabindex="0">
+      <span class="no">P-03</span>
+      <div class="face"><img src="assets/posters/eta-graph.webp" alt="GRAPH-BASED DELHIVERY ETA OPTIMIZATION poster" loading="lazy" width="960" height="600"></div>
+      <span class="hint"><span class="h">HOVER ▸ SPEC</span><span class="t">TAP ▸ SPEC</span></span>
+      <div class="spec">
+        <div class="sb">SPEC ── P-03</div>
+        <div class="ti">GRAPH-BASED DELHIVERY ETA OPTIMIZATION</div>
+        <div class="tg">SUPPLY CHAIN · GRAPH ML</div>
+        <p>144,867 shipment scans as a 1,657-hub graph; node2vec and centrality features in a LightGBM ETA model.</p>
+        <div class="kpis"><span>MAE 107 → 32 MIN</span><span>5% → 46% WITHIN 15%</span></div>
+        <div class="op"><a href="project-eta-graph.html">[ ▸ OPEN CASE FILE ]</a><a href="https://delivery-network-intelligence-sjdj5m77kgdkvbmgqhy9yo.streamlit.app/" target="_blank" rel="noopener noreferrer">LIVE DEMO ▸</a><a href="https://github.com/lokifergusion9/delivery-network-intelligence" target="_blank" rel="noopener noreferrer">CODE ▸</a></div>
+      </div>
+    </div>
+    <div class="card poster" tabindex="0">
+      <span class="no">P-04</span>
+      <div class="face"><img src="assets/posters/customer-value.webp" alt="DECODING CUSTOMER VALUE — SQL RETENTION STRATEGY poster" loading="lazy" width="960" height="600"></div>
+      <span class="hint"><span class="h">HOVER ▸ SPEC</span><span class="t">TAP ▸ SPEC</span></span>
+      <div class="spec">
+        <div class="sb">SPEC ── P-04</div>
+        <div class="ti">DECODING CUSTOMER VALUE — SQL RETENTION STRATEGY</div>
+        <div class="tg">BUSINESS · BI</div>
+        <p>3,900 D2C customers in 5 loyalty tiers via MySQL CTEs; discounts drove zero lift, exposing 43% of revenue as promo-reliant.</p>
+        <div class="kpis"><span>$99K PROMO-RELIANT</span><span>281 LOYALISTS</span></div>
+        <div class="op"><a href="project-customer-value.html">[ ▸ OPEN CASE FILE ]</a><a href="https://lokifergusion9.github.io/decoding-customer-value/founder_dashboard.html" target="_blank" rel="noopener noreferrer">DASHBOARD ▸</a><a href="https://github.com/lokifergusion9/decoding-customer-value" target="_blank" rel="noopener noreferrer">CODE ▸</a></div>
+      </div>
+    </div>
+  </div>
+  <a class="allbar" href="projects.html"><span class="a">+ 3 MORE · SECUREBANK · REFUNDGUARD · EV TARIFF</span><span class="b">[ ▸ ALL PROJECTS ]</span></a>
+</section>
+
+<!-- 04 SKILLS -->
+<section class="sec" id="skills">
+  <div class="sh"><span class="num">04</span><span class="t">SKILLS</span><span class="fill" aria-hidden="true">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span></div>
+  <div class="areas">
+    <div class="area"><span class="c">S1</span><span class="n">AI &amp; ML</span><span class="i">LangGraph · LangChain · RAG · MCP · LLM Agents · LLM Evaluation · Prompt Engineering · Vector Databases</span></div>
+    <div class="area"><span class="c">S2</span><span class="n">LANGUAGES &amp; FRAMEWORKS</span><span class="i">Python · SQL · pandas · NumPy · scikit-learn · LightGBM · NetworkX · FastAPI · React · Streamlit</span></div>
+    <div class="area"><span class="c">S3</span><span class="n">DATA &amp; CLOUD</span><span class="i">PostgreSQL · MySQL · Docker · AWS EC2 · Git · GitHub Actions · Power BI</span></div>
+    <div class="area"><span class="c">S4</span><span class="n">BUSINESS &amp; PRODUCT</span><span class="i">PRDs · Stakeholder Management · Root Cause Analysis · Funnel Analysis · A/B Testing · GTM · Pricing Analysis</span></div>
+  </div>
+</section>
+
+<!-- 05 BEYOND -->
+<section class="sec" id="beyond">
+  <div class="sh"><span class="num">05</span><span class="t">EDUCATION &amp; BEYOND</span><span class="fill" aria-hidden="true">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span></div>
+  <div class="log">
+    <div class="r"><span class="d">2022 — 2026</span><span>IIT ROORKEE · B.TECH, PRODUCTION &amp; INDUSTRIAL ENGINEERING</span><span class="tag">EDU</span></div>
+    <div class="r"><span class="d">HEC · IITR</span><span>DEPUTY SECRETARY · HIMALAYAN EXPLORERS' CLUB<span class="x">Led a 100+ member team managing a ₹15-lakh budget across 14+ treks, cutting costs 15%. Led the 13-member Auden's Col Expedition (5,500m) with zero safety incidents.</span></span><span class="tag">LEAD</span></div>
+    <div class="r"><span class="d">RCA · IITR</span><span>FOUNDER &amp; LEAD · RAJASTHAN CULTURAL ASSOCIATION<span class="x">Mobilized 40+ faculty, 30+ staff and 60+ volunteers for flagship events with 400+ attendees; SOPs kept them running 3 years straight.</span></span><span class="tag">FOUNDER</span></div>
+    <div class="r"><span class="d">INTER-IIT 56–58</span><span>SECRETARY &amp; CAPTAIN · MEN'S VOLLEYBALL TEAM<span class="x">2 Silver and 1 Bronze for IIT Roorkee at 3 consecutive Inter-IIT Sports Meets.</span></span><span class="tag">SPORT</span></div>
+    <div class="r"><span class="d">2024 — 25</span><span>BEST SPORTSMAN OF IIT ROORKEE · BEST ATHLETE AWARD<span class="x">50+ medals across volleyball, football, athletics and field hockey, the highest among 11,000+ students.</span></span><span class="tag">AWARD</span></div>
+  </div>
+</section>
+
+<!-- 06 PHOTOS -->
+<section class="sec" id="photos">
+  <div class="sh"><span class="num">06</span><span class="t">FIELD LOG</span><span class="fill" aria-hidden="true">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span></div>
+  <div class="gal">
+    <figure class="ph">
+      <div class="bar"><span class="k">IMG-01 ── EXPEDITION</span><span>5,500M</span></div>
+      <div class="img"><img src="assets/gallery/01.jpg" alt="Auden's Col expedition" loading="lazy" onerror="this.remove()"></div>
+      <figcaption><span>AUDEN'S COL</span><span>13-MEMBER TEAM</span></figcaption>
+    </figure>
+    <figure class="ph">
+      <div class="bar"><span class="k">IMG-02 ── INTER-IIT</span><span>56TH–58TH</span></div>
+      <div class="img"><img src="assets/gallery/02.jpg" alt="Inter-IIT volleyball" loading="lazy" onerror="this.remove()"></div>
+      <figcaption><span>MEN'S VOLLEYBALL</span><span>2 SILVER · 1 BRONZE</span></figcaption>
+    </figure>
+    <figure class="ph">
+      <div class="bar"><span class="k">IMG-03 ── AWARD</span><span>2024–25</span></div>
+      <div class="img"><img src="assets/gallery/03.jpg" alt="Best Sportsman award" loading="lazy" onerror="this.remove()"></div>
+      <figcaption><span>BEST SPORTSMAN</span><span>IIT ROORKEE</span></figcaption>
+    </figure>
+    <figure class="ph">
+      <div class="bar"><span class="k">IMG-04 ── CULTURE</span><span>400+ ATTENDEES</span></div>
+      <div class="img"><img src="assets/gallery/04.jpg" alt="Rajasthan Cultural Association event" loading="lazy" onerror="this.remove()"></div>
+      <figcaption><span>RAJASTHAN CULTURAL ASSN.</span><span>FOUNDER</span></figcaption>
+    </figure>
+    <figure class="ph">
+      <div class="bar"><span class="k">IMG-05 ── ON THE ROAD</span><span>30+ TRIPS</span></div>
+      <div class="img"><img src="assets/gallery/05.jpg" alt="Mount Diggers trip" loading="lazy" onerror="this.remove()"></div>
+      <figcaption><span>MOUNT DIGGERS</span><span>FOUNDER'S OFFICE</span></figcaption>
+    </figure>
+    <figure class="ph">
+      <div class="bar"><span class="k">IMG-06 ── TREKS</span><span>14+ TREKS</span></div>
+      <div class="img"><img src="assets/gallery/06.jpg" alt="Himalayan Explorers' Club trek" loading="lazy" onerror="this.remove()"></div>
+      <figcaption><span>HIMALAYAN EXPLORERS' CLUB</span><span>DEPUTY SECRETARY</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec" id="contact">
+  <div class="join">
+    <div class="a">
+      <div class="kk">OPEN TO ROLES</div>
+      <div class="hh">LET'S BUILD</div>
+      <p>Looking for full-time roles where I build with AI and work directly with the people using it. Happy to walk through any project, the code behind it, or the decision it changed.</p>
+      <div class="ctas">
+        <a class="cta" href="mailto:lokeshkumar22119032@gmail.com">[ ▸ SAY HELLO ]</a>
+        <a class="cta sec2" href="assets/Lokesh-Kumar-Resume.pdf" target="_blank" rel="noopener">[ ▸ RÉSUMÉ ]</a>
+      </div>
+    </div>
+    <div class="b">
+      <div class="kk" style="margin:0">QUEUE</div>
+      <div class="q"><span>FORWARD DEPLOYED ENGINEER</span><span>OPEN</span></div>
+      <div class="q"><span>AI ENGINEER</span><span>OPEN</span></div>
+      <div class="q"><span>AI PRODUCT</span><span>OPEN</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="foot">
+  <div class="g">
+    <div><div class="h">LOKESH KUMAR</div><div class="bl">IIT Roorkee engineer building AI agents, LLM evals and data systems that change real decisions.</div></div>
     <div>
-      <span class="pill"><i></i>Open to full-time roles</span>
-      <h1><a href="#top">Lokesh Kumar</a></h1>
-      <p class="role">Data · AI Agents · Operations</p>
-      <div class="typed" aria-hidden="true"><span style="color:var(--accent)">▸</span> I build <span class="t" id="typed">decisions out of messy data.</span><span class="c"></span></div>
-      <p class="lede">Production &amp; Industrial Engineer from <b>IIT Roorkee</b> building agentic AI systems, logistics models and retention strategy that teams actually act on.</p>
-
-      <nav aria-label="Sections">
-        <a href="#about"><i></i><span>01 — About</span></a>
-        <a href="#experience"><i></i><span>02 — Experience</span></a>
-        <a href="#projects"><i></i><span>03 — Projects</span></a>
-        <a href="#skills"><i></i><span>04 — Skills</span></a>
-        <a href="#background"><i></i><span>05 — Education &amp; Leadership</span></a>
-        <a href="#contact"><i></i><span>06 — Contact</span></a>
-      </nav>
+      <div class="h">CONTACT</div>
+      <div><span class="pre">MAIL ▸ </span><a href="mailto:lokeshkumar22119032@gmail.com">lokeshkumar22119032@gmail.com</a></div>
+      <div><span class="pre">GHUB ▸ </span><a href="https://github.com/lokifergusion9" target="_blank" rel="noopener noreferrer">github.com/lokifergusion9</a></div>
+      <div><span class="pre">LNKD ▸ </span><a href="https://www.linkedin.com/in/lokesh-kumar-1768262b9/" target="_blank" rel="noopener noreferrer">in/lokesh-kumar-1768262b9</a></div>
+      <div><span class="pre">TEL&nbsp; ▸ </span><a href="tel:+918619269161">+91 86192 69161</a></div>
     </div>
-
-    <div class="social">
-      <a class="ic" href="https://github.com/lokifergusion9" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" width="21" height="21" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.73.8 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.26 5.68.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.2.67.8.56A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg></a>
-      <a class="ic" href="https://www.linkedin.com/in/lokesh-kumar-1768262b9/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" width="21" height="21" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg></a>
-      <a class="ic" href="mailto:lokeshkumar22119032@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="21" height="21" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
-      <a class="ulink" href="assets/Lokesh-Kumar-Resume.pdf" target="_blank" rel="noopener">Résumé ↗</a>
+    <div>
+      <div class="h">INDEX</div>
+      <div class="foot-links">
+        <a href="#about">ABOUT</a><a href="#work">WORK</a><a href="projects.html">PROJECTS</a><a href="#skills">SKILLS</a><a href="#beyond">BEYOND</a><a href="#contact">CONTACT</a>
+      </div>
     </div>
-  </header>
-
-  <main id="top">
-
-    <section id="about">
-      <div class="sh" data-rv><span>01 — About</span></div>
-      <div class="prose">
-        <figure class="photo" data-rv>
-          <img src="assets/lokesh.jpg" alt="Lokesh Kumar standing beside the Mechanical &amp; Industrial Engineering department sign at IIT Roorkee" width="960" height="1280">
-          <span class="k a"></span><span class="k b"></span>
-          <figcaption class="cap">Lokesh Kumar · IIT Roorkee</figcaption>
-        </figure>
-        <p data-rv>I approach problems as an <b>industrial engineer first and a builder second</b>. Before I write a model or an agent, I want to know which decision it is supposed to change — the vendor someone picks, the hub someone fixes, the discount someone stops giving.</p>
-        <p data-rv>That framing runs through everything I ship. At Mount Diggers I built <b>TravelOS</b>, a multi-tenant AI CRM with four LangGraph agents that keep a human in the loop. <b>KhataAI</b> turns WhatsApp payment messages into a clean ledger with <b>100% field accuracy</b> on a held-out set. A logistics graph cut ETA error <b>24%</b>, and a D2C brand's transactions showed that <b>43% of its revenue</b> leaned on discounts that drove zero extra spend.</p>
-        <p data-rv>Outside the terminal I've led a <b>13-member expedition to Auden's Col (5,500m)</b>, founded the Rajasthan Cultural Association, and captained IIT Roorkee's volleyball team. They taught me what operations keeps teaching: plans meet messy reality, and the people who win measure, adapt and keep the system moving.</p>
-      </div>
-      <div class="stats" data-rv>
-        <div class="stat"><div class="n"><span data-count="100" data-dec="0">100</span>%</div><div class="l">Held-out field accuracy — KhataAI LLM pipeline</div></div>
-        <div class="stat"><div class="n">−<span data-count="24" data-dec="0">24</span>%</div><div class="l">ETA error cut with graph features</div></div>
-        <div class="stat"><div class="n">$<span data-count="99" data-dec="0">99</span>K</div><div class="l">Promo-reliant revenue exposed (of $233K)</div></div>
-        <div class="stat"><div class="n"><span data-count="4" data-dec="0">4</span></div><div class="l">LangGraph agents shipped in TravelOS</div></div>
-      </div>
-    </section>
-
-    <section id="experience">
-      <div class="sh" data-rv><span>02 — Experience</span></div>
-      <div class="job" data-rv>
-        <span class="when">Aug 2026 — Oct 2026</span>
-        <div>
-          <h3>AI Product Intern · <em>Candex AI</em></h3>
-          <p class="sub">Omnichannel AI calling agent</p>
-          <ul class="ticks">
-            <li>Authored PRDs and user stories, raising <b>50+ Jira tickets</b> and running sprint grooming for an omnichannel AI calling agent.</li>
-            <li>Drove QA and UAT on voice/WhatsApp flows; designed LLM evals, cutting hallucinations <b>20%</b> across <b>50,000+ live chats</b>.</li>
-            <li>Led 14-day client pilots, mining transcripts for insights and tracking KPIs on dashboards; pilot-to-paid rate rose <b>15%</b>.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="job" data-rv>
-        <span class="when">Jan 2026 — Jun 2026</span>
-        <div>
-          <h3>Founder's Office · <em>Mount Diggers</em></h3>
-          <p class="sub">Adventure travel &amp; hospitality</p>
-          <p class="group">Operations &amp; growth</p>
-          <ul class="ticks">
-            <li>Managed logistics and vendor coordination for <b>30+ trips</b> serving <b>1,500+ travelers</b>, cutting costs <b>15%</b> through negotiations.</li>
-            <li>Benchmarked pricing, demand and competitors across <b>50+ hospitality properties</b> to drive expansion and vendor selection.</li>
-            <li>Built an <b>8+ college ambassador network</b> and closed <b>3+ B2B trek partnerships</b> through direct corporate outreach.</li>
-          </ul>
-          <p class="group">TravelOS — AI SaaS CRM</p>
-          <ul class="ticks">
-            <li>Built <b>TravelOS</b>, a multi-tenant AI SaaS CRM (FastAPI, React) with <b>8 modules</b> automating itineraries, creatives and leads. <a href="https://github.com/lokifergusion9/Travel-OS" target="_blank" rel="noopener noreferrer">Code &#8599;</a></li>
-            <li>Developed <b>4 AI agents (LangGraph)</b> for itineraries, creatives, outreach and follow-ups with human-in-the-loop approval.</li>
-            <li>Secured data with <b>PostgreSQL Row-Level Security</b>, JWT and HMAC-verified webhooks; deployed on <b>AWS EC2</b> via Docker.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="sh" data-rv><span>03 — Projects</span></div>
-      <div class="cards dim">
-
-        <article class="card dimi" data-rv>
-          <div class="top">
-            <h3><a href="https://github.com/lokifergusion9/Khata-AI" target="_blank" rel="noopener noreferrer">KhataAI — WhatsApp Payment Extraction Pipeline ↗</a></h3>
-            <span class="tag">LLM · Agents</span>
-          </div>
-          <p>An agentic LLM pipeline built on <b>LangGraph and MCP</b> that turns unstructured WhatsApp payment messages into a <b>10-field Google Sheets ledger</b>. It runs every 30 minutes, sends a daily summary, and guarantees <b>exactly-once processing</b> through SQLite deduplication, commit-after-write and locking, so no payment is ever logged twice.</p>
-          <div class="kpis">
-            <span class="g">94.8% → 100% held-out accuracy</span>
-            <span class="g">92-message eval suite</span>
-            <span>Exactly-once ingestion</span>
-          </div>
-          <div class="links">
-            <a href="https://github.com/lokifergusion9/Khata-AI" target="_blank" rel="noopener noreferrer">Code ↗</a>
-          </div>
-          <div class="chips"><span>LangGraph</span><span>MCP</span><span>LLM Evals</span><span>SQLite</span><span>Google Sheets API</span><span>Streamlit</span></div>
-        </article>
-
-        <article class="card dimi" data-rv>
-          <div class="top">
-            <h3><a href="https://github.com/lokifergusion9/Travel-OS" target="_blank" rel="noopener noreferrer">TravelOS — AI Operating System for Travel Agencies &#8599;</a></h3>
-            <span class="tag">AI SaaS · Agents</span>
-          </div>
-          <p>A multi-tenant workspace where <b>LangGraph agents</b> draft itineraries, marketing creatives, vendor deals and lead follow-ups, and a human approves every step before anything goes out. Tenant isolation is enforced in the database with <b>PostgreSQL Row-Level Security</b>, per-tenant integration tokens are encrypted at rest, and nothing is sent or posted except from the approve path.</p>
-          <div class="kpis">
-            <span class="g">Human-in-the-loop approvals</span>
-            <span>Row-Level Security tenancy</span>
-            <span>24 backend + 5 frontend tests</span>
-            <span>CI on every push</span>
-          </div>
-          <div class="links">
-            <a href="https://github.com/lokifergusion9/Travel-OS" target="_blank" rel="noopener noreferrer">Code &#8599;</a>
-          </div>
-          <div class="chips"><span>LangGraph</span><span>FastAPI</span><span>React</span><span>TypeScript</span><span>PostgreSQL</span><span>pgvector</span><span>Docker</span><span>Terraform</span></div>
-        </article>
-
-        <article class="card dimi" data-rv>
-          <div class="top">
-            <h3><a href="https://github.com/lokifergusion9/BankingSupportAgent" target="_blank" rel="noopener noreferrer">SecureBank — Multi-Agent Banking Support Assistant &#8599;</a></h3>
-            <span class="tag">Agents · RAG</span>
-          </div>
-          <p>A <b>LangGraph</b> assistant where a router sends each message to an FAQ, account, card or escalation agent. Policy answers come from the bank's own PDFs through <b>retrieval with a cross-encoder re-ranker</b> and cite file and page. Card numbers, PAN and OTPs are masked before any model sees them, every tool is scoped to the logged-in customer, and <b>blocking a card pauses for an explicit Yes</b> before anything irreversible happens.</p>
-          <div class="kpis">
-            <span class="g">28/28 end-to-end evals</span>
-            <span class="g">94% policy search hit@4</span>
-            <span>31/31 routing accuracy</span>
-            <span>70+ tests</span>
-          </div>
-          <div class="links">
-            <a href="https://github.com/lokifergusion9/BankingSupportAgent" target="_blank" rel="noopener noreferrer">Code &#8599;</a>
-          </div>
-          <div class="chips"><span>LangGraph</span><span>FastAPI</span><span>RAG</span><span>Re-ranking</span><span>Groq</span><span>LLM Evals</span><span>Docker</span></div>
-        </article>
-
-        <article class="card dimi" data-rv>
-          <div class="top">
-            <h3><a href="https://delivery-network-intelligence-sjdj5m77kgdkvbmgqhy9yo.streamlit.app/" target="_blank" rel="noopener noreferrer">Graph-Based Delhivery ETA Optimization ↗</a></h3>
-            <span class="tag">Supply-Chain · Graph ML</span>
-          </div>
-          <p>Modeled the public Delhivery dataset of <b>144,867 shipment records</b> as a directed graph of <b>1,657 facilities and 2,783 corridors</b>. I added node2vec and centrality features to a LightGBM ETA model and ranked every hub by SLA-breach and betweenness risk. Fixing just the top 3 bottlenecks projects <b>4% less late-delivery time</b>.</p>
-          <div class="kpis">
-            <span class="g">MAE 107 → 32 min</span>
-            <span class="g">−24% error vs non-graph baseline</span>
-            <span class="g">5% → 46% legs within 15%</span>
-            <span>10× better than OSRM</span>
-          </div>
-          <div class="links">
-            <a href="https://delivery-network-intelligence-sjdj5m77kgdkvbmgqhy9yo.streamlit.app/" target="_blank" rel="noopener noreferrer">Live demo ↗</a>
-            <a class="sec" href="https://github.com/lokifergusion9/delivery-network-intelligence" target="_blank" rel="noopener noreferrer">Code ↗</a>
-          </div>
-          <div class="chips"><span>NetworkX</span><span>node2vec</span><span>LightGBM</span><span>Streamlit</span><span>Graph ML</span></div>
-        </article>
-
-        <article class="card dimi" data-rv>
-          <div class="top">
-            <h3><a href="https://lokifergusion9.github.io/decoding-customer-value/founder_dashboard.html" target="_blank" rel="noopener noreferrer">Decoding Customer Value — SQL Retention Strategy ↗</a></h3>
-            <span class="tag">Business · BI</span>
-          </div>
-          <p>Segmented <b>3,900 D2C customers</b> into 5 loyalty tiers using MySQL CTEs, window functions and pandas features. Discounted customers spent no more than full-price ones (<b>−$0.85</b> per customer), which exposed <b>43% of revenue ($99K of $233K)</b> as promo-reliant. I turned that into a two-phase promo-sunset plan and a Power BI founder dashboard.</p>
-          <div class="kpis">
-            <span class="r">$99K promo-reliant revenue</span>
-            <span class="g">281 Ideal Loyalists</span>
-            <span>680 at-risk customers flagged</span>
-          </div>
-          <div class="links">
-            <a href="https://lokifergusion9.github.io/decoding-customer-value/founder_dashboard.html" target="_blank" rel="noopener noreferrer">Dashboard ↗</a>
-            <a class="sec" href="https://github.com/lokifergusion9/decoding-customer-value" target="_blank" rel="noopener noreferrer">Code ↗</a>
-          </div>
-          <div class="chips"><span>SQL</span><span>MySQL</span><span>pandas</span><span>Power BI</span><span>Segmentation</span></div>
-        </article>
-
-        <article class="card dimi" data-rv>
-          <div class="top">
-            <h3><a href="https://github.com/lokifergusion9/EV-dynamic-tariff-optimization" target="_blank" rel="noopener noreferrer">Agentic Dynamic Tariff Optimization for EV Charging &#8599;</a></h3>
-            <span class="tag">Optimization · Agents</span>
-          </div>
-          <p>Three cooperating agents <b>forecast demand, set a dynamic ₹/kWh tariff and learn from simulated outcomes</b>. Built on real Caltech ACN-Data charging sessions and cross-checked on Shenzhen UrbanEV. Against a flat ₹15/kWh rate the learned policy earns more while easing peak congestion and moving demand into idle off-peak hours (simulated results).</p>
-          <div class="kpis">
-            <span class="g">+8.2% revenue vs flat rate</span>
-            <span class="g">−22% peak wait</span>
-            <span>Load forecast R² 0.90</span>
-            <span>Congestion ROC-AUC 0.96</span>
-          </div>
-          <div class="links">
-            <a href="https://github.com/lokifergusion9/EV-dynamic-tariff-optimization" target="_blank" rel="noopener noreferrer">Code &#8599;</a>
-          </div>
-          <div class="chips"><span>scikit-learn</span><span>Gradient Boosting</span><span>Simulation</span><span>Python</span></div>
-        </article>
-
-        <article class="card dimi" data-rv>
-          <div class="top">
-            <h3><a href="https://github.com/lokifergusion9/rlhf" target="_blank" rel="noopener noreferrer">RLHF Post-Training of Qwen2.5-0.5B &#8599;</a></h3>
-            <span class="tag">LLM · Alignment</span>
-          </div>
-          <p>End-to-end <b>SFT, reward model and token-level PPO</b> on HelpSteer3 with Hugging Face TRL and LoRA, evaluated on 2,017 held-out prompts. PPO beats the base model in 50.9% and the SFT policy in 57.7% of pairwise comparisons under the learned reward model. The audit also shows its cost: longer outputs, more generation-cap hits and the highest repetition rate.</p>
-          <div class="kpis">
-            <span class="g">57.7% PPO win rate vs SFT</span>
-            <span>2,017-prompt evaluation</span>
-            <span class="r">Higher repetition (audited)</span>
-          </div>
-          <div class="links">
-            <a href="https://github.com/lokifergusion9/rlhf" target="_blank" rel="noopener noreferrer">Code &#8599;</a>
-          </div>
-          <div class="chips"><span>TRL</span><span>PPO</span><span>LoRA</span><span>Qwen2.5</span><span>PyTorch</span></div>
-        </article>
-      </div>
-      <a class="more" data-rv href="https://github.com/lokifergusion9" target="_blank" rel="noopener noreferrer">View full archive on GitHub →</a>
-    </section>
-
-    <section id="skills">
-      <div class="sh" data-rv><span>04 — Skills</span></div>
-      <div class="srow" data-rv><span>Languages &amp; Frameworks</span><div><span>Python</span><span>SQL</span><span>pandas</span><span>NumPy</span><span>scikit-learn</span><span>LangGraph</span><span>FastAPI</span></div></div>
-      <div class="srow" data-rv><span>AI &amp; Infra</span><div><span>LLMs</span><span>AI Agents</span><span>MCP</span><span>LLM Evaluation</span><span>PostgreSQL</span><span>Docker</span><span>Terraform</span><span>AWS</span></div></div>
-      <div class="srow" data-rv><span>Analytics &amp; BI</span><div><span>MySQL</span><span>Power BI</span><span>Plotly</span><span>Streamlit</span><span>KPI Dashboards</span><span>Customer Segmentation</span><span>LightGBM</span><span>NetworkX</span></div></div>
-      <div class="srow" data-rv><span>Product &amp; Business</span><div><span>Market Research</span><span>Competitive Benchmarking</span><span>Pricing Analysis</span><span>Stakeholder Management</span></div></div>
-    </section>
-
-    <section id="background">
-      <div class="sh" data-rv><span>05 — Education &amp; Leadership</span></div>
-      <div class="edu" data-rv>
-        <span class="logo">IIT</span>
-        <span class="nm"><b>Indian Institute of Technology Roorkee</b><span>B.Tech · Production &amp; Industrial Engineering</span></span>
-        <span class="yr"><b>2022 — 2026</b> · Roorkee</span>
-      </div>
-      <div class="lead">
-        <div class="lrow" data-rv>
-          <span>100+ members · ₹15L</span>
-          <p><b>Deputy Secretary — Himalayan Explorers' Club.</b> Led a 100+ member team managing a ₹15-lakh budget across 14+ treks, cutting operational costs 15% through planning. Led the <b>13-member Auden's Col Expedition (5,500m)</b> with zero safety incidents.</p>
-        </div>
-        <div class="lrow" data-rv>
-          <span>400+ attendees · 3 yrs</span>
-          <p><b>Founder &amp; Lead — Rajasthan Cultural Association.</b> Mobilized 40+ faculty, 30+ staff and 60+ volunteers to deliver flagship cultural events for 400+ attendees; set up the SOPs that kept them running for 3 consecutive years.</p>
-        </div>
-        <div class="lrow" data-rv>
-          <span>Inter-IIT · 56th–58th</span>
-          <p><b>Secretary, NSO Volleyball &amp; Captain, Men's Volleyball.</b> Won 2 Silver and 1 Bronze for IIT Roorkee at 3 consecutive Inter-IIT Sports Meets.</p>
-        </div>
-      </div>
-      <div class="awards" data-rv>
-        <div class="stat"><div class="n">01</div><div class="l"><b>Best Sportsman of IIT Roorkee</b> (2024–25) &amp; Best Athlete Award.</div></div>
-        <div class="stat"><div class="n">50+</div><div class="l"><b>Medals</b> across volleyball, football, athletics &amp; field hockey — highest among 11,000+ students.</div></div>
-        <div class="stat"><div class="n">3×</div><div class="l"><b>Inter-IIT medals</b> — 2 Silver &amp; 1 Bronze in volleyball.</div></div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="sh" data-rv><span>06 — Contact</span></div>
-      <h2 class="cta" data-rv>Let's turn your messy data into <span>decisions</span>.</h2>
-      <p class="prose" data-rv style="margin:16px 0 0;color:var(--ink2);max-width:52ch;line-height:1.7">Open to full-time roles in analytics, AI/agents, product and operations. Happy to walk through any project, the code behind it, or the decision it changed.</p>
-      <div class="btns" data-rv>
-        <a class="btn p" href="mailto:lokeshkumar22119032@gmail.com">Say hello →</a>
-        <a class="btn" href="assets/Lokesh-Kumar-Resume.pdf" target="_blank" rel="noopener">Résumé ↗</a>
-      </div>
-      <div class="clinks" data-rv>
-        <a href="mailto:lokeshkumar22119032@gmail.com">lokeshkumar22119032@gmail.com</a>
-        <a href="tel:+918619269161">+91 86192 69161</a>
-        <a href="https://www.linkedin.com/in/lokesh-kumar-1768262b9/" target="_blank" rel="noopener noreferrer">in/lokesh-kumar-1768262b9</a>
-      </div>
-      <footer>© 2026 Lokesh Kumar · IIT Roorkee</footer>
-    </section>
-  </main>
+  </div>
+  <div class="eof"><span>░▒▓ END OF FILE ▓▒░</span><span>LOKESH KUMAR · MMXXVI</span></div>
 </div>
 
 <script>
+// Pixel-block name, same technique as the reference: rasterise text small, draw each pixel as a block.
 (function () {
-  var reduced = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!reduced && "IntersectionObserver" in window) document.documentElement.classList.add("js");
-
-  // typed role line
-  var el = document.getElementById("typed");
-  var phrases = ["agentic AI systems.", "logistics network intelligence.", "customer-value strategy.", "decisions out of messy data."];
-  if (el && !reduced) {
-    var pi = 0, ci = 0, del = false;
-    el.textContent = "";
-    (function tick() {
-      var p = phrases[pi];
-      if (!del) {
-        el.textContent = p.slice(0, ++ci);
-        if (ci === p.length) { del = true; return setTimeout(tick, 1900); }
-        setTimeout(tick, 46 + Math.random() * 34);
-      } else {
-        el.textContent = p.slice(0, --ci);
-        if (ci === 0) { del = false; pi = (pi + 1) % phrases.length; return setTimeout(tick, 380); }
-        setTimeout(tick, 24);
+  var cv = document.getElementById('title'); if (!cv) return;
+  var P;
+  function paint() {
+    var cs = getComputedStyle(document.documentElement);
+    var v = function (n, d) { return (cs.getPropertyValue(n) || '').trim() || d; };
+    P = { bg: v('--canvasBg', v('--bg', '#F4EFE4')), hot: v('--canvasHot', v('--brass', v('--hot', '#0E9F55'))), hi: v('--canvasHi', v('--hi', '#0C1512')) };
+    var lines = ['LOKESH', 'KUMAR'];
+    var GW = 54, GH = 7, cw = 11, ch = 22;
+    var dpr = Math.min(2, window.devicePixelRatio || 1);
+    cv.width = GW * cw * dpr;
+    cv.height = (lines.length * GH + (lines.length - 1)) * ch * dpr;
+    var ctx = cv.getContext('2d');
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.fillStyle = P.bg; ctx.fillRect(0, 0, GW * cw, cv.height / dpr);
+    var off = document.createElement('canvas');
+    lines.forEach(function (line, li) {
+      off.width = GW; off.height = GH * 2;
+      var o = off.getContext('2d');
+      o.clearRect(0, 0, GW, GH * 2);
+      o.fillStyle = '#000'; o.textBaseline = 'middle';
+      o.font = '700 ' + (GH * 2 * 0.92) + 'px "IBM Plex Mono", ui-monospace, monospace';
+      var w = o.measureText(line).width || 1;
+      o.save(); o.scale(Math.min(1, GW / w), 1); o.fillText(line, (GW - Math.min(w, GW)) / 2 / Math.min(1, GW / w), GH); o.restore();
+      var d = o.getImageData(0, 0, GW, GH * 2).data;
+      var on = function (x, y) { return d[(y * GW + x) * 4 + 3] > 96; };
+      var y0 = li * (GH + 1);
+      for (var gy = 0; gy < GH; gy++) for (var gx = 0; gx < GW; gx++) {
+        var a = on(gx, gy * 2), b = on(gx, gy * 2 + 1);
+        if (!a && !b) continue;
+        var px = gx * cw, py = (y0 + gy) * ch;
+        ctx.fillStyle = gy < 2 ? P.hi : P.hot;
+        if (a) ctx.fillRect(px, py, cw - 1, ch / 2 - 1);
+        if (b) ctx.fillRect(px, py + ch / 2, cw - 1, ch / 2 - 1);
       }
-    })();
-  }
-
-  // count-up numbers
-  function count(scope) {
-    scope.querySelectorAll("[data-count]").forEach(function (n) {
-      if (n._done) return; n._done = true;
-      var target = parseFloat(n.dataset.count), dec = +n.dataset.dec || 0, t0 = performance.now();
-      (function step(t) {
-        var p = Math.min(1, (t - t0) / 1400);
-        n.textContent = (target * (1 - Math.pow(1 - p, 3))).toFixed(dec);
-        if (p < 1) requestAnimationFrame(step);
-      })(t0);
     });
   }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(paint, paint); else paint();
+  window.addEventListener('resize', paint);
+})();
 
-  if (!("IntersectionObserver" in window)) return;
-
-  // scroll reveals
-  if (!reduced) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        io.unobserve(e.target);
-        e.target.classList.add("in");
-        count(e.target);
-      });
-    }, { threshold: 0.1, rootMargin: "0px 0px -36px 0px" });
-    document.querySelectorAll("[data-rv]").forEach(function (n) { io.observe(n); });
-  }
-
-  // active section in the nav
-  var links = {};
-  document.querySelectorAll("nav a").forEach(function (a) { links[a.getAttribute("href").slice(1)] = a; });
-  var secIo = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (!e.isIntersecting) return;
-      Object.keys(links).forEach(function (k) { links[k].classList.toggle("on", k === e.target.id); });
+// Touch screens have no hover: first tap opens a project's spec, tapping outside closes it.
+(function () {
+  if (!matchMedia('(hover: none)').matches) return;
+  var cards = document.querySelectorAll('.card');
+  cards.forEach(function (c) {
+    c.addEventListener('click', function (e) {
+      if (!c.classList.contains('open')) { e.preventDefault(); cards.forEach(function (o) { o.classList.remove('open'); }); c.classList.add('open'); }
     });
-  }, { rootMargin: "-30% 0px -55% 0px" });
-  Object.keys(links).forEach(function (id) { var s = document.getElementById(id); if (s) secIo.observe(s); });
-
-  // cursor spotlight (desktop pointers only)
-  var spot = document.getElementById("spot");
-  if (spot && !reduced && matchMedia("(pointer: fine)").matches) {
-    var raf = 0, x, y;
-    addEventListener("mousemove", function (e) {
-      x = e.clientX; y = e.clientY;
-      if (raf) return;
-      raf = requestAnimationFrame(function () {
-        raf = 0;
-        spot.style.background = "radial-gradient(650px at " + x + "px " + y + "px, rgba(111,227,196,.075), transparent 80%)";
-      });
-    }, { passive: true });
-  }
+  });
+  document.addEventListener('click', function (e) { if (!e.target.closest('.card')) cards.forEach(function (o) { o.classList.remove('open'); }); });
 })();
 </script>
 </body>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="obsidian">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Graph-Based Delhivery Eta Optimization — Case file · Lokesh Kumar</title>
+<meta name="description" content="144,867 shipment scans as a 1,657-hub graph; node2vec and centrality features in a LightGBM ETA model.">
+<meta name="theme-color" content="#0C100E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230E9F55'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='700' fill='%23ffffff' text-anchor='middle'%3ELK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/case.css">
+<link rel="stylesheet" href="assets/theme.css">
+</head>
+<body>
+<div class="nav">
+  <div class="l">
+    <a class="pill" href="index.html">LOKESH KUMAR</a>
+    <span style="color:var(--dim)">│</span>
+    <span>AI AGENTS · DATA · OPS</span>
+  </div>
+  <div class="links">
+    <a href="index.html">HOME</a>
+    <a href="index.html#about">ABOUT</a>
+    <a href="index.html#work">WORK</a>
+    <span class="on">PROJECTS</span>
+    <a href="index.html#skills">SKILLS</a>
+    <a href="index.html#photos">PHOTOS</a>
+    <a href="index.html#contact">CONTACT</a>
+    <a href="assets/Lokesh-Kumar-Resume.pdf" target="_blank" rel="noopener">RÉSUMÉ ↗</a>
+  </div>
+</div>
+
+<div class="hud">
+  <div class="hl"><span><span class="am">HUBS</span>&nbsp; 1,657</span><span><span class="am">CORRIDORS</span>&nbsp; 2,783</span><span><span class="am">MODEL</span>&nbsp; LIGHTGBM</span><span><span class="am">HOLDOUT</span>&nbsp; FUTURE WEEK</span></div>
+  <div class="hr"><span>LEVEL <span class="am">P-03</span></span><span class="badge">NO LEAKAGE</span></div>
+</div>
+
+<section class="sec cs title">
+  <a class="back" href="projects.html">◂ ALL PROJECTS</a>
+  <div class="tgrid">
+    <div class="tcol">
+      <div class="kick">CASE FILE P-03 ── SUPPLY CHAIN · GRAPH ML</div>
+      <h1>ETA<br>GRAPH</h1>
+      <div class="sub1">GRAPH-BASED DELHIVERY ETA OPTIMIZATION</div>
+      <p class="lead">The routing engine (OSRM) underestimates leg time by about 2x: only ~5% of its ETAs land within 15% of actual.</p><p class="">Treat the network as a graph, not a list of routes. Delay propagates through hubs, so each hub&#x27;s structural role becomes a feature.</p>
+      <div class="rule"><div class="rk">NO LEAKAGE</div><div>The graph used for model features is built from training legs only, and the model is scored on a future week it never saw (Sep 27 – Oct 3, 2018).</div></div>
+    </div>
+    <div class="scol">
+      <div class="screen">
+          <div class="sbar"><span>SCREEN ── NETWORK MAP</span><span class="am">LIVE</span></div>
+          <img src="assets/projects/eta-graph.png" alt="GRAPH-BASED DELHIVERY ETA OPTIMIZATION screenshot" loading="eager">
+          <div class="sfoot"><span class="blinkx">▸ PRESS START</span></div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec cs">
+  <div class="csh"><span class="tag">SCORE</span><span class="t">SCOREBOARD</span><span class="dash"></span></div>
+  <div class="tiles"><div class="tile"><div class="tl">MAE (MIN)</div><div class="tv">107→32</div><div class="td">Graph-enhanced model vs the OSRM routing engine.</div></div><div class="tile"><div class="tl">WITHIN 15%</div><div class="tv">46%</div><div class="td">Of legs, up from ~5% with OSRM.</div></div><div class="tile"><div class="tl">GRAPH LIFT</div><div class="tv">−24%</div><div class="td">MAE cut from graph features alone.</div></div><div class="tile"><div class="tl">LATE TIME</div><div class="tv">−4%</div><div class="td">Network-wide, by fixing the top 3 bottleneck hubs.</div></div></div>
+</section>
+
+<section class="sec cs">
+  <div class="csh"><span class="tag">PATH</span><span class="t">PIPELINE</span><span class="dash"></span></div>
+  <div class="prow other"><span class="pl">OSRM</span><span class="blk dash">SHORTEST PATH</span><span class="arr">▸</span><span class="blk dash">CLEAN ROADS</span><span class="arr">▸</span><span class="blk dash hot">~2x TOO OPTIMISTIC</span></div>
+  <div class="prow"><span class="pl am">GRAPH ETA</span><span class="blk">144,867 SCANS</span><span class="arr">▶</span><span class="blk">OD LEGS</span><span class="arr">▶</span><span class="blk">CORRIDORS</span><span class="arr">▶</span><span class="blk">GRAPH</span><span class="arr">▶</span><span class="blk">FEATURES</span><span class="arr">▶</span><span class="blk hot">LIGHTGBM</span></div>
+  <p class="pp">Betweenness, degree, clustering and node2vec embeddings per facility feed the ETA model. It is trained twice, with and without graph features, to isolate the lift from network structure.</p>
+</section>
+
+<section class="sec cs">
+  <div class="csh"><span class="tag">BOSS</span><span class="t">HOW IT HOLDS UP</span><span class="dash"></span></div>
+  <div class="two"><div class="panel">
+        <div class="ck"><span class="am">CORE A</span><span>HUB RISK SCORE</span></div>
+        <p>Each hub scores 0–100: 70% realised SLA breach plus 30% betweenness centrality, so central hubs are flagged even before they show up in breach volume.</p>
+        <div class="grid2"><div><span>BREACH WEIGHT</span><b>70%</b></div><div><span>CENTRALITY</span><b>30%</b></div><div><span>TOP 3 SHARE</span><b>~7% OF BREACH</b></div><div><span>FIX ASSUMED</span><b>60% DELAY CUT</b></div></div>
+        <div class="cn">A tunable heuristic, not a fitted parameter.</div>
+      </div><div class="panel">
+        <div class="ck"><span class="am">CORE B</span><span>TOP BOTTLENECKS</span></div>
+        <p>Bhiwandi has the highest realised late time, Gurgaon the highest betweenness so its delays ripple network-wide, and Kolkata Dankuni is a chronic eastern chokepoint.</p>
+        <div class="grid2"><div><span>#1</span><b>BHIWANDI (MH)</b></div><div><span>#2</span><b>GURGAON (HR)</b></div><div><span>#3</span><b>KOLKATA (WB)</b></div><div><span>FIX</span><b>CAPACITY + DWELL</b></div></div>
+        <div class="cn">Reasoning and assumptions are in the repo&#x27;s strategy memo.</div>
+      </div></div>
+  <div class="two figs"><div class="panel dark">
+        <div class="phd"><span>FIG 1 ── LEGS WITHIN 15% OF ACTUAL</span><span class="m">HIGHER IS BETTER</span></div>
+        <div class="fbody"><div class="frow"><span class="fl">OSRM</span><div class="fb"><div class="bar b" style="width:10.0%"></div><span>5%</span></div></div><div class="frow"><span class="fl">BASELINE</span><div class="fb"><div class="bar b" style="width:70.0%"></div><span>35%</span></div></div><div class="frow"><span class="fl">GRAPH</span><div class="fb"><div class="bar r" style="width:92.0%"></div><span>46%</span></div></div></div>
+        <div class="pft">Time-based holdout · baseline = same model without graph features</div>
+      </div><div class="panel dark">
+        <div class="phd"><span>FIG 2 ── MEAN ABSOLUTE ERROR</span><span class="m">LOWER IS BETTER</span></div>
+        <div class="fbody"><div class="frow"><span class="fl">OSRM</span><div class="fb"><div class="bar b" style="width:97.3%"></div><span>107 MIN</span></div></div><div class="frow"><span class="fl">BASELINE</span><div class="fb"><div class="bar b" style="width:38.2%"></div><span>42 MIN</span></div></div><div class="frow"><span class="fl">GRAPH</span><div class="fb"><div class="bar r" style="width:29.1%"></div><span>32 MIN</span></div></div></div>
+        <div class="pft">Minutes per leg on the held-out week</div>
+      </div></div>
+  <div class="verdict"><div class="vcol"><div class="vk red">VERDICT</div><div class="vh">About 46% of legs within 15% of actual: roughly 10x the routing engine.</div><div class="vp">The notebook&#x27;s best model uses node2vec. The live dashboard drops it for fast, cache-friendly predictions, so its headline is a little lower (~42%).</div></div><div class="vcol"><div class="vk am">NEXT LEVEL</div><div class="vp"><span class="am">▸ </span>Temporal graphs: hub congestion by hour and weekday.</div><div class="vp"><span class="am">▸ </span>Graph neural networks (GraphSAGE / GAT) instead of hand-made features.</div><div class="vp"><span class="am">▸ </span>Prediction intervals with quantile LightGBM.</div><div class="vp"><span class="am">▸ </span>Live re-scoring of hub risk as new scans arrive.</div></div></div>
+</section>
+
+<section class="sec cs">
+  <div class="csh"><span class="tag">SELECT</span><span class="t">DASHBOARD TABS</span><span class="dash"></span></div>
+  <div class="subs"><div class="sub"><div class="sart">MAP</div><div class="sbd"><div class="sk">P-03 · 01</div><div class="sh2">NETWORK MAP</div><p>Corridor graph; node size and colour show delay-risk score.</p></div></div><div class="sub"><div class="sart">HUB</div><div class="sbd"><div class="sk">P-03 · 02</div><div class="sh2">HUB RISK</div><p>Rank facilities by risk and drill into any hub&#x27;s corridors.</p></div></div><div class="sub"><div class="sart">LANE</div><div class="sbd"><div class="sk">P-03 · 03</div><div class="sh2">CORRIDOR RISK</div><p>Find the corridors contributing the most SLA breach.</p></div></div><div class="sub"><div class="sart">ETA</div><div class="sbd"><div class="sk">P-03 · 04</div><div class="sh2">ETA PREDICTOR</div><p>Pick source and destination, compare the prediction with OSRM.</p></div></div><div class="sub"><div class="sart">ML</div><div class="sbd"><div class="sk">P-03 · 05</div><div class="sh2">MODEL</div><p>Baseline vs graph-enhanced model on held-out data.</p></div></div></div>
+</section>
+<section class="sec cs">
+  <div class="rules">
+    <div class="rcol"><div class="vk am">RULES OF PLAY</div><div class="rl"><div><span class="am">▸ </span>Time-based holdout: no trip appears in both splits.</div><div><span class="am">▸ </span>Graph features come from training legs only.</div><div><span class="am">▸ </span>Cold-start hubs get zero graph features.</div><div><span class="am">▸ </span>Impact figures use explicit, adjustable assumptions.</div></div></div>
+    <div class="rcol"><div class="vk am">ARTEFACTS</div><div class="rl"><div><span class="mu">DATA ▸ </span>Delhivery dataset (Kaggle, CC0) · Sep–Oct 2018</div><div><span class="mu">SCALE ▸ </span>144,867 scans · 14,817 trips</div><div><span class="mu">STACK ▸ </span>NetworkX · node2vec · LightGBM · Plotly · Streamlit</div><div><a href="https://delivery-network-intelligence-sjdj5m77kgdkvbmgqhy9yo.streamlit.app/" target="_blank" rel="noopener noreferrer">[ ▸ LIVE DEMO ]</a></div><div><a href="https://github.com/lokifergusion9/delivery-network-intelligence" target="_blank" rel="noopener noreferrer">[ ▸ SOURCE CODE ]</a></div><div><a href="https://github.com/lokifergusion9/delivery-network-intelligence/blob/main/strategy_memo.md" target="_blank" rel="noopener noreferrer">[ ▸ STRATEGY MEMO ]</a></div></div></div>
+  </div>
+</section>
+
+<div class="foot cfoot">
+  <div class="cnav">
+    <a href="project-khataai.html">◂ P-02 KHATAAI</a>
+    <a class="am" href="projects.html">CONTINUE? ▸ ALL PROJECTS</a>
+    <a href="project-customer-value.html">P-04 CUSTVALUE ▸</a>
+  </div>
+</div>
+<div class="foot">
+  <div class="g">
+    <div><div class="h">LOKESH KUMAR</div><div class="bl">IIT Roorkee engineer building AI agents, LLM evals and data systems that change real decisions.</div></div>
+    <div>
+      <div class="h">CONTACT</div>
+      <div><span class="pre">MAIL ▸ </span><a href="mailto:lokeshkumar22119032@gmail.com">lokeshkumar22119032@gmail.com</a></div>
+      <div><span class="pre">GHUB ▸ </span><a href="https://github.com/lokifergusion9" target="_blank" rel="noopener noreferrer">github.com/lokifergusion9</a></div>
+      <div><span class="pre">LNKD ▸ </span><a href="https://www.linkedin.com/in/lokesh-kumar-1768262b9/" target="_blank" rel="noopener noreferrer">in/lokesh-kumar-1768262b9</a></div>
+    </div>
+    <div>
+      <div class="h">INDEX</div>
+      <div class="foot-links"><a href="index.html">HOME</a><a href="projects.html">PROJECTS</a><a href="index.html#skills">SKILLS</a><a href="index.html#photos">PHOTOS</a><a href="index.html#contact">CONTACT</a></div>
+    </div>
+  </div>
+  <div class="eof"><span>░▒▓ END OF FILE ▓▒░</span><span>LOKESH KUMAR · MMXXVI</span></div>
+</div>
+
+</body>
+</html>

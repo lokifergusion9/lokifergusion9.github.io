@@ -1,0 +1,132 @@
+/* ===== SITE THEME: OBSIDIAN SOFT (dark). Pages opt in with <html data-theme="obsidian">. ===== */
+
+/* ---------- 1. OBSIDIAN PHOSPHOR: the reference, perfected ---------- */
+html[data-theme="obsidian"]{--bg:#050806;--scr:#0A110C;--panel:#0D1610;--ink:#D9FFE6;--body:#8FB79C;--mid:#5FAF7E;--dim:#4E6B58;
+  --frame:#1B3A27;--rule:#10231A;--glyph:#14351F;--accent:#39FF88;--accent2:#FFB000;--onAccent:#04140A;--link:#7CF5FF;--red:#FF5A5A}
+
+/* ---------- shared dark mapping (applies to every theme above) ---------- */
+html[data-theme]{
+  --hot:var(--accent);--hotText:var(--accent);--hi:var(--ink);--brass:var(--accent);--neon:var(--accent);--neonSoft:var(--mid);
+  --canvasBg:var(--scr);--canvasHot:var(--accent);--canvasHi:var(--ink);
+  --c-ink:var(--ink);--c-panel:var(--panel);--c-edge:var(--frame);--c-edgeSoft:var(--rule);--c-blue:var(--scr);
+  --c-red:var(--red);--c-amber:var(--accent2);--c-mute:var(--dim);--c-body:var(--body);
+}
+html[data-theme],html[data-theme] body{background:var(--bg);color:var(--accent)}
+html[data-theme] ::selection{background:var(--accent);color:var(--onAccent)}
+html[data-theme] a{color:var(--link)}
+html[data-theme] a:hover{background:var(--accent);color:var(--onAccent)}
+html[data-theme] .nav{background:var(--bg);border-color:var(--frame)}
+html[data-theme] .nav .links a{color:var(--mid)}
+html[data-theme] .nav .links a:hover{color:var(--onAccent)}
+html[data-theme] .pill,html[data-theme] .sh .num,html[data-theme] .status .head{background:var(--accent);color:var(--onAccent)}
+html[data-theme] a.pill:hover{background:var(--accent);color:var(--onAccent)}
+html[data-theme] .sh .t,html[data-theme] .kicker,html[data-theme] .intro b,html[data-theme] .plate b,html[data-theme] .ticks b{color:var(--ink)}
+html[data-theme] .blink,html[data-theme] .kicker .tri,html[data-theme] .ticks li::before,html[data-theme] .kpis span::before{color:var(--accent)}
+html[data-theme] .cta{border-color:var(--accent);color:var(--accent)}
+html[data-theme] .cta.sec2{border-color:var(--frame);color:var(--mid)}
+html[data-theme] .cta:hover{background:var(--accent);border-color:var(--accent);color:var(--onAccent)}
+html[data-theme] .frame,html[data-theme] .track,html[data-theme] .job,html[data-theme] .ph,html[data-theme] .join,html[data-theme] .lcta,html[data-theme] .allbar,html[data-theme] .more{border-color:var(--frame)}
+html[data-theme] .track:hover,html[data-theme] .job:hover,html[data-theme] .ph:hover{border-color:var(--accent)}
+html[data-theme] .join,html[data-theme] .lcta{border-color:var(--accent)}
+html[data-theme] .bar{border-color:var(--frame)}
+/* hero */
+html[data-theme] .hero .frame{border-color:var(--frame)}
+html[data-theme] .hero .bar{background:var(--scr);color:var(--mid);border-color:var(--frame)}
+html[data-theme] .hero .bar .k{color:var(--accent)}
+html[data-theme] .hero-canvas{background:var(--scr)}
+html[data-theme] .status{background:var(--scr)}
+/* cards */
+html[data-theme] .card{background:var(--scr);border-color:var(--frame)}
+html[data-theme] .card:hover,html[data-theme] .card:focus-within,html[data-theme] .card.open{border-color:var(--accent)}
+html[data-theme] .card .nm{color:var(--ink)}
+html[data-theme] .card .nm span{color:var(--accent);text-shadow:0 0 14px color-mix(in srgb,var(--accent) 55%,transparent)}
+html[data-theme] .card .no,html[data-theme] .card .hint{color:var(--dim)}
+html[data-theme] .card .spec{background:linear-gradient(to top,color-mix(in srgb,var(--scr) 99%,transparent),color-mix(in srgb,var(--scr) 92%,transparent))}
+html[data-theme] .spec .ti{color:var(--ink)}
+html[data-theme] .kpis{color:var(--accent)}
+html[data-theme] .kpis span.r,html[data-theme] .kpis span.r::before{color:var(--red)}
+html[data-theme] .lcard .lbar{background:var(--panel);color:var(--accent)}
+/* plate + photos */
+html[data-theme] .plate .art{background:var(--scr);border-color:var(--frame)}
+html[data-theme] .plate .art img{mix-blend-mode:normal;filter:grayscale(1) contrast(1.1) brightness(.9);border-color:var(--frame)}
+html[data-theme] .ph .img{background:var(--scr)}
+html[data-theme] .ph .img::before{color:var(--accent)}
+html[data-theme] .ph figcaption{border-color:var(--frame)}
+html[data-theme] .ph figcaption span:first-child,html[data-theme] .area,html[data-theme] .log .r,html[data-theme] .join .q span:first-child{color:var(--ink)}
+/* case files */
+html[data-theme] .hud{background:var(--panel);color:var(--ink);border-color:var(--accent)}
+html[data-theme] .hud .am{color:var(--accent)}
+html[data-theme] .csh .tag{background:var(--accent2);color:var(--bg)}
+html[data-theme] .kick{color:var(--accent2)}
+html[data-theme] .title h1{color:var(--ink);text-shadow:4px 4px 0 var(--accent),8px 8px 0 color-mix(in srgb,var(--accent2) 70%,transparent)}
+html[data-theme] .rule,html[data-theme] .panel.dark,html[data-theme] .verdict,html[data-theme] .rules{background:var(--panel)}
+html[data-theme] .rule{border-color:var(--accent2)}
+html[data-theme] .screen{border-color:var(--accent);box-shadow:8px 8px 0 color-mix(in srgb,var(--accent) 35%,transparent);background:var(--scr)}
+html[data-theme] .screen .sbar,html[data-theme] .screen .sfoot{background:var(--panel);color:var(--ink)}
+html[data-theme] .screen .sbar .am{color:var(--accent)}
+html[data-theme] .bigstat{color:var(--ink)}
+html[data-theme] .bigstat .v{color:var(--accent);text-shadow:0 0 22px color-mix(in srgb,var(--accent) 60%,transparent)}
+html[data-theme] .tile{background:var(--panel);border-color:var(--frame)}
+html[data-theme] .tile .tl{color:var(--accent2)}
+html[data-theme] .tile .tv{color:var(--accent)}
+html[data-theme] .blk{background:var(--scr);border-color:var(--frame);color:var(--ink)}
+html[data-theme] .blk.hot{background:var(--accent);border-color:var(--accent);color:var(--onAccent)}
+html[data-theme] .blk.dash{background:transparent;border-color:var(--dim);color:var(--dim)}
+html[data-theme] .arr{color:var(--accent)}
+html[data-theme] .panel{border-color:var(--frame)}
+html[data-theme] .grid2{background:var(--frame);border-color:var(--frame)}
+html[data-theme] .grid2 div{background:var(--bg)}
+html[data-theme] .fb .bar.r{background:var(--accent)}
+html[data-theme] .fb .bar.b{background:var(--dim)}
+html[data-theme] .verdict{border-color:var(--accent)}
+html[data-theme] .sart,html[data-theme] .sub:nth-child(n) .sart{background:var(--scr);color:var(--accent);text-shadow:0 0 12px color-mix(in srgb,var(--accent) 50%,transparent)}
+html[data-theme] .sub{border-color:var(--frame)}
+html[data-theme] .sub:hover{border-color:var(--accent)}
+html[data-theme] .mile{border-color:var(--frame)}
+html[data-theme] .mile.clear{border-color:var(--accent)}
+html[data-theme] .mile.clear .mh{color:var(--accent)}
+html[data-theme] .mile.locked{background:var(--scr);border-color:var(--red)}
+html[data-theme] .cfoot .cnav{border-color:var(--frame)}
+html[data-theme] .cfoot .cnav a.am{color:var(--accent2)}
+
+/* ---------- per-theme signature touches ---------- */
+html[data-theme="obsidian"] body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:80;background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px)}
+
+
+/* ===== OBSIDIAN SOFT: calmer, easier-on-the-eyes refinement of Obsidian Phosphor ===== */
+html[data-theme="obsidian"]{
+  --bg:#0C100E;      /* lifted off pure black: less glare */
+  --scr:#111613;     /* screens/cards */
+  --panel:#141A17;
+  --ink:#ECEFED;     /* soft white, not #FFF */
+  --body:#C3CBC6;    /* body text: light grey, high but gentle contrast */
+  --mid:#9AA59F;     /* secondary text: grey, no longer green */
+  --dim:#6F7A74;
+  --frame:#232C27;   /* quieter borders */
+  --rule:#1A211D;
+  --glyph:#1F2823;
+  --accent:#5EE39A;  /* softened phosphor green, used only for highlights */
+  --accent2:#E8B86A; /* muted amber for labels */
+  --onAccent:#07130C;
+  --link:#8FD8E8;
+  --red:#F07A7A;
+}
+html[data-theme="obsidian"] body::after{display:none}            /* no scanlines */
+html[data-theme="obsidian"] body{color:var(--body)}
+html[data-theme="obsidian"] .card .nm span{text-shadow:0 0 8px rgba(94,227,154,.28)}
+html[data-theme="obsidian"] .kpis,html[data-theme="obsidian"] .tile .tv{color:var(--ink)}
+html[data-theme="obsidian"] .intro p.last,html[data-theme="obsidian"] .plate p.last{color:var(--mid)}
+html[data-theme="obsidian"] .bigstat .v{text-shadow:0 0 10px rgba(94,227,154,.3)}
+html[data-theme="obsidian"] .title h1{text-shadow:3px 3px 0 var(--accent),6px 6px 0 rgba(232,184,106,.35)}
+
+/* name block beside SYS.STATUS (replaces the old intro) */
+.idname{display:grid;gap:16px;align-content:center;min-height:100%}
+.idname .who{font-family:var(--mono);font-weight:700;font-size:clamp(44px,6vw,84px);line-height:.98;letter-spacing:.04em;color:var(--ink,var(--hi))}
+.idname .sub{font-size:12.5px;letter-spacing:.18em;color:var(--mid)}
+#about .stack{align-items:stretch}
+html[data-theme] .rule .rk{color:var(--accent2)}
+html[data-theme] .mile.clear .mh{color:var(--accent)}
+
+/* plate photo: full colour, cropped to the sign + full body */
+.plate .art .crop{width:100%;max-width:340px;aspect-ratio:4/5;overflow:hidden;border:1px solid var(--frame)}
+html .plate .art .crop img,html[data-theme] .plate .art .crop img{display:block;position:relative;width:146.3%;max-width:none;height:auto;aspect-ratio:auto;margin:-54.9% 0 0 -12.2%;object-fit:fill;filter:none;mix-blend-mode:normal;border:0}
