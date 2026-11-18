@@ -304,3 +304,54 @@ html .cfoot .cnav a:hover{background:#0B0F0C;color:var(--neon)}
 .spec .mu{font-size:11px;letter-spacing:.12em;color:var(--dim)}
 .card.poster .hint{top:10px;bottom:auto;right:10px}
 .lcard.poster .hint{top:40px}
+/* ---- FIELD LOG: uniform squares, 3 x 2 ---- */
+.gal.gal3{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.gal3 .ph .img{height:auto;aspect-ratio:1/1}
+.gal3 .ph .img::before{content:none}
+html .gal3 .ph img,html[data-theme] .gal3 .ph img{filter:none;object-fit:cover}
+.gal3 .ph .bar span,.gal3 .ph figcaption span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (max-width:900px){.gal.gal3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.gal.gal3{grid-template-columns:minmax(0,1fr)}}
+
+/* ---- PLATE I: hover reveal (board photo -> decrypted close-up) ---- */
+.plate .art .crop.reveal{position:relative;cursor:crosshair;outline-offset:4px}
+html[data-theme] .plate .art .crop.reveal img.alt{position:absolute;inset:0;width:100%;height:100%;margin:0;max-width:none;object-fit:cover;object-position:50% 38%;
+  clip-path:inset(0 0 100% 0);filter:grayscale(1) contrast(1.25) brightness(1.02) sepia(.55) hue-rotate(78deg) saturate(2.6);
+  transition:clip-path .95s cubic-bezier(.7,0,.2,1),filter 1.4s ease .5s;z-index:1}
+html[data-theme] .plate .art .crop.reveal img.base{transition:filter .6s ease,transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.reveal .rv-grid{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;transition:opacity .5s ease .35s;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,.28) 0 1px,transparent 1px 3px),radial-gradient(120% 90% at 50% 40%,transparent 55%,rgba(0,0,0,.55))}
+.reveal .rv-scan{position:absolute;left:0;right:0;top:0;height:3px;z-index:3;pointer-events:none;opacity:0;
+  background:var(--accent,#5EE39A);box-shadow:0 0 14px 3px color-mix(in srgb,var(--accent,#5EE39A) 70%,transparent)}
+.reveal .rv-tag{position:absolute;left:10px;bottom:10px;z-index:4;font-size:10.5px;letter-spacing:.16em;padding:5px 8px;background:rgba(8,10,9,.82);color:var(--accent,#5EE39A);border:1px solid color-mix(in srgb,var(--accent,#5EE39A) 45%,transparent)}
+.reveal .rv-tag .open{display:none}
+.reveal .rv-stamp{position:absolute;right:10px;top:10px;z-index:4;font-size:10px;letter-spacing:.18em;padding:4px 7px;color:#E9EEEB;background:rgba(8,10,9,.7);opacity:0;transform:translateY(-4px);transition:opacity .4s ease .8s,transform .4s ease .8s}
+.reveal:hover img.alt,.reveal:focus-visible img.alt,.reveal.open img.alt{clip-path:inset(0 0 0 0)}
+html[data-theme] .plate .art .crop.reveal:hover img.alt,html[data-theme] .plate .art .crop.reveal:focus-visible img.alt,html[data-theme] .plate .art .crop.reveal.open img.alt{clip-path:inset(0 0 0 0);filter:grayscale(.15) contrast(1.08) saturate(1.05)}
+html[data-theme] .plate .art .crop.reveal:hover img.base,html[data-theme] .plate .art .crop.reveal.open img.base{filter:brightness(.35) blur(2px);transform:scale(1.04)}
+.reveal:hover .rv-grid,.reveal:focus-visible .rv-grid,.reveal.open .rv-grid{opacity:.55}
+.reveal:hover .rv-scan,.reveal:focus-visible .rv-scan,.reveal.open .rv-scan{animation:rvScan .95s cubic-bezier(.7,0,.2,1) forwards}
+.reveal:hover .rv-tag .lock,.reveal:focus-visible .rv-tag .lock,.reveal.open .rv-tag .lock{display:none}
+.reveal:hover .rv-tag .open,.reveal:focus-visible .rv-tag .open,.reveal.open .rv-tag .open{display:inline}
+.reveal:hover .rv-stamp,.reveal:focus-visible .rv-stamp,.reveal.open .rv-stamp{opacity:1;transform:none}
+@keyframes rvScan{0%{top:0;opacity:1}85%{opacity:1}100%{top:calc(100% - 3px);opacity:0}}
+.reveal .rv-tag .lock{animation:rvBlink 1.6s step-end infinite}
+@keyframes rvBlink{0%,60%{opacity:1}61%,100%{opacity:.45}}
+@media (prefers-reduced-motion:reduce){.reveal *{transition:none!important;animation:none!important}}
+/* plate reveal v2: base = main building, alt = board photo; both pre-cropped to 4:5 */
+html[data-theme] .plate .art .crop.reveal img.base{position:relative;display:block;width:100%;height:100%;max-width:none;margin:0;object-fit:cover;object-position:50% 50%}
+html[data-theme] .plate .art .crop.reveal img.alt{object-position:50% 50%}
+/* plate reveal on touch screens: tap toggles .open; ignore the sticky :hover that mobile browsers apply after a tap */
+.reveal .on-touch{display:none}
+@media (hover:none){
+  .reveal .on-hover{display:none}
+  .reveal .on-touch{display:inline}
+  .reveal:not(.open):hover img.alt,.reveal:not(.open):focus-visible img.alt{clip-path:inset(0 0 100% 0)}
+  html[data-theme] .plate .art .crop.reveal:not(.open):hover img.alt,html[data-theme] .plate .art .crop.reveal:not(.open):focus-visible img.alt{clip-path:inset(0 0 100% 0);filter:grayscale(1) contrast(1.25) brightness(1.02) sepia(.55) hue-rotate(78deg) saturate(2.6)}
+  html[data-theme] .plate .art .crop.reveal:not(.open):hover img.base{filter:none;transform:none}
+  .reveal:not(.open):hover .rv-grid,.reveal:not(.open):focus-visible .rv-grid{opacity:0}
+  .reveal:not(.open):hover .rv-scan,.reveal:not(.open):focus-visible .rv-scan{animation:none;opacity:0}
+  .reveal:not(.open):hover .rv-tag .lock,.reveal:not(.open):focus-visible .rv-tag .lock{display:inline}
+  .reveal:not(.open):hover .rv-tag .open,.reveal:not(.open):focus-visible .rv-tag .open{display:none}
+  .reveal:not(.open):hover .rv-stamp,.reveal:not(.open):focus-visible .rv-stamp{opacity:0;transform:translateY(-4px)}
+}
